@@ -1,54 +1,85 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const dropdownBtn = document.querySelector(".dropdown-btn");
-    const dropdownContent = document.querySelector(".dropdown-content");
-    const filterLinks = document.querySelectorAll(".dropdown-content a");
-    const galleryItems = document.querySelectorAll(".gallery-item");
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
 
-    dropdownBtn.addEventListener("click", function () {
-        dropdownContent.classList.toggle("show");
+    hamburger.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
     });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const filters = document.querySelectorAll(".filter");
+    const items = document.querySelectorAll(".portfolio-item");
 
-    filterLinks.forEach(link => {
-        link.addEventListener("click", function (e) {
-            e.preventDefault();
-            const filter = this.getAttribute("data-filter");
+    filters.forEach(filter => {
+        filter.addEventListener("click", function () {
+            const filterValue = this.getAttribute("data-filter");
 
-            galleryItems.forEach(item => {
-                if (filter === "all" || item.getAttribute("data-category") === filter) {
-                    item.classList.remove("hidden");
+            // Update active class
+            filters.forEach(f => f.classList.remove("active"));
+            this.classList.add("active");
+
+            // Show/hide items with animation
+            items.forEach(item => {
+                if (filterValue === "all" || item.classList.contains(filterValue)) {
+                    item.classList.remove("hide");
                 } else {
-                    item.classList.add("hidden");
+                    item.classList.add("hide");
                 }
             });
-
-            dropdownContent.classList.remove("show");
-            dropdownBtn.textContent = this.textContent;
         });
     });
+});
 
-    document.addEventListener("click", function (event) {
-        if (!dropdownBtn.contains(event.target) && !dropdownContent.contains(event.target)) {
-            dropdownContent.classList.remove("show");
+// Add a fade-in effect for the cards on scroll
+// document.addEventListener("DOMContentLoaded", () => {
+//     const cards = document.querySelectorAll(".resume-card");
+
+//     function fadeInCards() {
+//         cards.forEach((card) => {
+//             const rect = card.getBoundingClientRect();
+//             if (rect.top < window.innerHeight - 100) {
+//                 card.style.opacity = 1;
+//                 card.style.transform = "translateY(0)";
+//             }
+//         });
+//     }
+
+//     window.addEventListener("scroll", fadeInCards);
+//     fadeInCards();
+// });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const skillsSection = document.querySelector(".skills-section-unique");
+    const progressBars = document.querySelectorAll(".progress-unique");
+
+    function showProgress() {
+        const sectionTop = skillsSection.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (sectionTop < windowHeight - 100) {
+            progressBars.forEach(bar => {
+                bar.style.width = bar.classList.contains("photoshop-unique") ? "90%" :
+                                  bar.classList.contains("html-unique") ? "90%" :
+                                  bar.classList.contains("css-unique") ? "80%" :
+                                  bar.classList.contains("javascript-unique") ? "75%" :
+                                  bar.classList.contains("problem-solving-unique") ? "90%" :
+                                  bar.classList.contains("communication-unique") ? "90%" :
+                                  bar.classList.contains("time-management-unique") ? "90%" :
+                                  bar.classList.contains("collaboration-unique") ? "90%" : "0%";
+            });
         }
-    });
-});
-document.querySelectorAll('.accordion-header').forEach(button => {
-    button.addEventListener('click', () => {
-        const accordionContent = button.nextElementSibling;
+    }
 
-        document.querySelectorAll('.accordion-content').forEach(content => {
-            if (content !== accordionContent) {
-                content.classList.remove('show');
-                content.previousElementSibling.classList.remove('active');
-                content.previousElementSibling.querySelector('.icon').textContent = '+';
-            }
-        });
-
-        accordionContent.classList.toggle('show');
-        button.classList.toggle('active');
-        button.querySelector('.icon').textContent = accordionContent.classList.contains('show') ? '−' : '+';
-    });
+    window.addEventListener("scroll", showProgress);
 });
-document.querySelector(".contact-form button").addEventListener("click", function() {
-    alert("Your message has been sent!");
+
+document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent default submission
+    fetch(this.action, {
+        method: this.method,
+        body: new FormData(this),
+    }).then(() => {
+        alert("Your message has been sent successfully!");
+        this.reset(); // Clear form after submission
+    });
 });

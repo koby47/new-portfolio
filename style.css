@@ -5,13 +5,22 @@
 }
 
 
-
+.section-head{
+    display: flex;
+    justify-content:flex-start;
+    width: 100%;
+    border: solid 1px black;
+    height: 50px;
+    padding: 2%;
+    padding-left: 200px;
+    background-color: #666;
+}
 .section-1 {
     font-family: Arial, sans-serif;
     text-align: center;
     color: white;
     background: url('./img/backdrop.jpg') no-repeat center center/cover;
-    height: 200vh;
+    height: 100vh;
     position: relative;
     padding-top: 60px; 
 }
@@ -153,7 +162,7 @@ p {
     display: flex;
     padding-top: 40px;
     padding-left:100px ;
-    height: 60vh;
+    height: 30vh;
     flex-direction:column;
    
 }
@@ -209,8 +218,8 @@ p {
     display: flex;
     flex-direction:column;
     justify-content: flex-start;
-    padding-left: 200px;
-    padding-bottom:200px;
+    padding-left: 50px;
+    padding-bottom:50px;
     line-height: 27px;
     font-size: 15px;
     letter-spacing: normal;

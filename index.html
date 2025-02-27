@@ -3,221 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SamMQuaye</title>
-    <link rel="stylesheet" href="./style.css">
-    <script src="./js/script.js" defer></script>
+    <title>SaMQuaye</title>
+    
+    <!-- FontAwesome 4 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js"  defer></script>
 </head>
 <body>
-    <section class="section-1">
-    <nav></nav>
-    <div class="nav">
-        <a href="#home">Home</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Contact</a>
+
+
+    <!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">SaMQuaye</div>
+
+    <!-- Menu Links -->
+    <ul class="nav-links" id="nav-links">
+        <li><a href="./index.html">HOME</a></li>
+        <li><a href="#portfolio">PORTFOLIO</a></li>
+        <li><a href="#resume">RESUME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+    </ul>
+
+    <!-- Hamburger Menu Button -->
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
-    
-    <div class="flex-container">
-        <div class="overlay"></div>
+</nav>
+
+    <!-- Navbar
+    <div class="navbar" id="navbar">
+        <a href="#">HOME</a>
+        <a href="#">PORTFOLIO</a>
+        <a href="#">RESUME</a>
+        <a href="#">ABOUT</a>
+        <a href="#">CONTACT</a>
+    </div> -->
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p>Hello, I'm</p>
+            <h1>Samuel Mensah Quaye</h1>
+            <p>AND THIS IS MY RESUME</p>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
         <div class="container">
-            <h1>Hello, I'm</h1>
-            <h2>Samuel Mensah Quaye</h2>
-            <p>And this is my rezume</p>
-        </div>
-    </div>
-</section>
-<section>
+            <h2 class="section-title">Featured <strong>Portfolio</strong></h2>
+            
+            <!-- Filter Buttons -->
+            <ul class="portfolio-filters">
+                <li class="filter active" data-filter="all">All</li>
+                <li class="filter" data-filter="graphic">Graphic Design</li>
+                <li class="filter" data-filter="web">Web Development</li>
+            </ul>
     
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <div class="portfolio-item graphic">
+                    <img src="./img/Prayer meeting 2.jpg" alt="Graphic Design">
+                    <h3>social media creative</h3>
+                    <span>social media</span>
+                </div>
+                <div class="portfolio-item web">
+                    <img src="./img/Hotel landing page.png" alt="Hotel Landing Page">
+                    <h3>Hotel landing page</h3>
+                    <span>Landing Page</span>
+                </div>
+                <div class="portfolio-item graphic">
+                    <img src="./img/Christening.jpg" alt="Graphic Design">
+                    <h3>Creative Package Design</h3>
+                    <span>social media</span>
+                </div>
+                <div class="portfolio-item web">
+                    <img src="./img/Travel and Tour landing page.png" alt="Travel and Tour">
+                    <h3>Travel and Tour </h3>
+                    <span>Landing page</span>
+                </div>
+                <div class="portfolio-item graphic">
+                    <img src="./img/3x6 new spicy  fish banner.jpg" alt="Graphic Design">
+                    <h3>Package Label</h3>
+                    <span>Branding</span>
+                </div>
+                <div class="portfolio-item web">
+                    <img src="images/web3.jpg" alt="Web Development">
+                    <h3>White Space Photography</h3>
+                    <span>Photography</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume">
+        <h2>My <strong>Resume</strong></h2>
+        <div class="resume-container">
+            <!-- Education Section -->
+            <div class="resume-column">
+                <h3>Education & Certification</h3>
+                <div class="resume-card">
+                    <p class="date">📅 February 2024 - Present</p>
+                    <h4 class="title">Web Developer</h4>
+                    <p class="description">
+                       Mest Africa
+                    </p>
+                    <p class="institution">Accra,Ghans</p>
+                </div>
+                <div class="resume-card">
+                    <p class="date">📅 November 2024 - Present </p>
+                    <h4 class="title">Junior Cybersecurity Analyst</h4>
+                    <p class="description">
+                        Cisco Networking Academy <button><a href="https://www.credly.com/badges/471e0511-86ee-4326-bf65-78f5807386da/linked_in_profile">Credential</a></button>
+                    </p>
+                    <p class="institution">Accra,Ghana</p>
+                </div>
+                <div class="resume-card">
+                    <p class="date">📅  July 2024 </p>
+                    <h4 class="title">Certified in Cybersecurity </h4>
+                    <p class="description">
+                        ISC2 <button > <a href="https://www.credly.com/badges/945d311d-e109-4555-a6d2-a8563896ad7e/linked_in_profile" >credential</a></button>
+                    </p>
+                    <p class="institution">Ghana,Accra</p>
+                </div>
+                <div class="resume-card">
+                    <p class="date">📅 May 2013 - May 2015</p>
+                    <h4 class="title">B.A. Communication Studies</h4>
+                    <p class="description">
+                        Ghana Institute of Journalism (UNIMAC)
+                    </p>
+                    <p class="institution">Ghana,Accra</p>
+                </div>
+            </div>
     
-</section>
-<section>
-
-    </div>
-</section>
-<br>
-<section class="skills" id="skills">
-    <div class="skills-container">
-        <div class="skill">
-            <p>Adobe Photoshop <span class="percent">90%</span></p>
-            <div class="progress-bar"><div class="progress photoshop"></div></div>
-            <p>HTML5 <span class="percent">85%</span></p>
-            <div class="progress-bar"><div class="progress html5"></div></div>
-            <p>WordPress <span class="percent">70%</span></p>
-            <div class="progress-bar"><div class="progress wordpress"></div></div>
-        </div>
-        <div class="skill">
-            <p>jQuery <span class="percent">60%</span></p>
-            <div class="progress-bar"><div class="progress jquery"></div></div>
-            <p>CSS3 <span class="percent">90%</span></p>
-            <div class="progress-bar"><div class="progress css3"></div></div>
-            <p>SEO <span class="percent">80%</span></p>
-            <div class="progress-bar"><div class="progress seo"></div></div>
-        </div>
-    </div>
-</section>
-<br>
-<section class="education" id="education">
-   
-    <div class="accordion">
-        <div class="accordion-item">
-            <button class="accordion-header">Web Developer<span class="icon">+</span></button>
-            <div class="accordion-content">
-                <p>Mest Africa</p>
-            </div>
-        </div>
-        <br>
-        <div class="accordion-item">
-            <button class="accordion-header">Web Development Fundamentals <span class="icon">+</span></button>
-            <div class="accordion-content">
-                <p>IBM</p>
-            </div>
-        </div>
-        <br>
-        <div class="accordion-item">
-            <button class="accordion-header">Junior Security Analyst <span class="icon">+</span></button>
-            <div class="accordion-content">
-                <p>Cisco</p>
-            </div>
-        </div>
-        <br>
-
-        <div class="accordion-item">
-            <button class="accordion-header">Certified in Cybersecurity <span class="icon">+</span></button>
-            <div class="accordion-content">
-                <p>ISC2</p>
-            </div>
-        </div>
-        <br>
-
-        <div class="accordion-item">
-            <button class="accordion-header active">B.A. Communication Studies 
-                <span class="icon">−</span></button>
-            <div class="accordion-content show">
-                <p>Ghana Institute of Journalism (UNIMAC)</p>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="experience" id="experience">
-        
-            <div class="timeline-item">
-                <div class="timeline-icon red">
-                    <i class="fas fa-code"></i>
-                </div>
-                <div class="timeline-content">
-                    <p><strong> IT and Administrative Support</strong><span class="date">February 2023 - Present</span></p>
-                    <p>Secure Eyes</p>
-                </div>
-            </div>
-            <br>
-
-            <div class="timeline-item">
-                <div class="timeline-icon yellow">
-                    <i class="fas fa-cogs"></i>
-                </div>
-                <div class="timeline-content">
-                    <p><strong>Administrative Assistant</strong><span class="date">November 2018  - January 2023</span></p>
-                    <p>Joella Properties</p>
-                </div>
-            </div>
-            <br>
-
-            <div class="timeline-item">
-                <div class="timeline-icon purple">
-                    <i class="fas fa-paint-brush"></i>
-                </div>
-                <div class="timeline-content">
-                    <p><strong>Office Coordinator</strong> <span class="date">September 2015 - October 2018 
-                    </span></p>
-                    <p>Anaess Communication Limited
-                
+            <!-- Experience Section -->
+            <div class="resume-column">
+                <h3>Experience</h3>
+                <div class="resume-card">
+                    <p class="date">📅 February 2023 - Present</p>
+                    <h4 class="title">IT and Administrative Support
+                    </h4>
+                    <p class="description">Designed and updated client websites using WordPress and Joomla, 
+                        ensuring security and responsiveness.Performed regular system backups and 
+                        implemented basic security measures to protect company data.
 
                     </p>
+                    <p class="company">Secure Eyes</p>
+                </div>
+                <div class="resume-card">
+                    <p class="date">📅 November 2018 - January 2023</p>
+                    <h4 class="title">Administrative Assistant</h4>
+                    <p class="description">
+                        Created marketing materials (brochures, flyers) and coordinated over 20 property viewings monthly. Managed office inventory, reducing supply costs by 15% through strategic vendor negotiations.
+                    <p class="company">Joella Properties</p>
+                </div>
+                <div class="resume-card">
+                    <p class="date">📅 March 2013 - Present</p>
+                    <h4 class="title">Office Coordinator
+                    </h4>
+                    <p class="description">
+                        Assist in designing and creating visuals for websites.Troubleshoot and configure desktop hardware.
+                    </p>
+                    <p class="company">Anaess Communication Limited</p>
+                </div>
+                <div class="resume-card">
+                    <p class="date">📅 August 2009 - March 2010</p>
+                    <h4 class="title">Computer Repair Technician</h4>
+                    <p class="description">
+                        Troubleshoot and repair desktop computers.	Upgrade software and perform maintenance tasks on desktop computers.
+                    </p>
+                    <p class="company">Redan Systems Ltd </p>
                 </div>
             </div>
-            <br>
-        
+        </div>
     </section>
-    <section class="portfolio" id="portfolio">
-        <br>
-        <h3>Projects</h3>
-        <br>
-        <nav class="portfolio-nav">
-            <button class="dropdown-btn">works</button>
-            <ul class="dropdown-content">
-                <li><a href="#" data-filter="all" class="active">All</a></li>
-                <li><a href="#" data-filter="packaging">Packaging</a></li>
-                <li><a href="#" data-filter="mockup">Mockup</a></li>
-                <li><a href="#" data-filter="typography">Typography</a></li>
-                <li><a href="#" data-filter="photography">Photography</a></li>
-            </ul>
-        </nav>
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-wrapper">
+                <div class="about-image">
+                    <img src="./img/Aboutme.jpg" alt="SaMQuaye">
+                </div>
+                <div class="about-details">
+                    <h2 class="about-title">About <span>Me</span></h2>
+                    <p class="about-text">
+                        Results-driven Web Developer with expertise in WordPress, Joomla, and front-end and Back-end technologies. Strong background in IT support, cybersecurity, and website management. Skilled in designing secure, responsive websites and optimizing performance.
+                    <p class="about-text">
+                        Adept at troubleshooting, content management, and ensuring seamless user experiences.
 
-        <div class="gallery">
-            <div class="gallery-item" data-category="mockup">
-                <img src="./img/s1.png" alt="Square Box Mockup">
-                <h3>Square Box Mockup</h3>
-                <p>MOCKUP</p>
-            </div>
-            <div class="gallery-item" data-category="mockup">
-                <img src="./img/s2.png" alt="Product Box Package Mockup">
-                <h3>Product Box Package Mockup</h3>
-                <p>MOCKUP</p>
-            </div>
-            <div class="gallery-item" data-category="packaging">
-                <img src="./img/s3.png" alt="Creative Package Design">
-                <h3>Creative Package Design</h3>
-                <p>PACKAGING</p>
-            </div>
-            <div class="gallery-item" data-category="packaging">
-                <img src="./img/s4.png" alt="Brand Packaging">
-                <h3>Brand Packaging</h3>
-                <p>PACKAGING</p>
-            </div>
-            <div class="gallery-item" data-category="typography">
-                <img src="./img/s6.png" alt="Typography Poster">
-                <h3>Typography Poster</h3>
-                <p>TYPOGRAPHY</p>
-            </div>
-            <div class="gallery-item" data-category="typography">
-                <img src="./img/s5.png" alt="Typography Poster">
-                <h3>Typography Poster</h3>
-                <p>TYPOGRAPHY</p>
+                    </p>
+                    </p>
+                    <div class="about-buttons">
+                        <a href="#" class="about-btn hire-btn">Hire Me</a>
+                        <a href="./pdf/Samuel Mensah Quaye cv.pdf" download class="about-btn cv-btn">Download CV</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-container">
-            <h2>Get <strong>In Touch</strong></h2>
-            <div class="footer-content">
-                <div class="contact-form">
-                    <input type="text" placeholder="Your Name">
-                    <input type="email" placeholder="Your Email">
-                    <input type="tel" placeholder="Your Phone">
-                    <textarea placeholder="Write a Message"></textarea>
+    <section class="skills-section-unique">
+        <div class="skills-container-unique">
+            <h2 class="skills-title-unique">My <strong>Skills</strong></h2>
+            <div class="skills-wrapper-unique">
+                
+                <!-- Technical Skills -->
+                <div class="skills-column-unique">
+                    <h3 class="skills-subtitle-unique">Technical Skills</h3>
+                    <div class="skill-unique">
+                        <p>Adobe Photoshop <span class="skill-percentage-unique">90%</span></p>
+                        <div class="progress-bar-unique"><div class="progress-unique photoshop-unique"></div></div>
+                    </div>
+                    <div class="skill-unique">
+                        <p>HTML <span class="skill-percentage-unique">90%</span></p>
+                        <div class="progress-bar-unique"><div class="progress-unique html-unique"></div></div>
+                    </div>
+                    <div class="skill-unique">
+                        <p>CSS <span class="skill-percentage-unique">80%</span></p>
+                        <div class="progress-bar-unique"><div class="progress-unique css-unique"></div></div>
+                    </div>
+                    <div class="skill-unique">
+                        <p>JavaScript <span class="skill-percentage-unique">75%</span></p>
+                        <div class="progress-bar-unique"><div class="progress-unique javascript-unique"></div></div>
+                    </div>
+                </div>
+    
+                <!-- Soft Skills -->
+                <div class="skills-column-unique">
+                    <h3 class="skills-subtitle-unique">Soft Skills</h3>
+                    <div class="skill-unique">
+                        <p>Problem-Solving <span class="skill-percentage-unique">90%</span></p>
+                        <div class="progress-bar-unique"><div class="progress-unique problem-solving-unique"></div></div>
+                    </div>
+                    <div class="skill-unique">
+                        <p>Communication <span class="skill-percentage-unique">90%</span></p>
+                        <div class="progress-bar-unique"><div class="progress-unique communication-unique"></div></div>
+                    </div>
+                    <div class="skill-unique">
+                        <p>Time Management <span class="skill-percentage-unique">90%</span></p>
+                        <div class="progress-bar-unique"><div class="progress-unique time-management-unique"></div></div>
+                    </div>
+                    <div class="skill-unique">
+                        <p>Collaboration <span class="skill-percentage-unique">90%</span></p>
+                        <div class="progress-bar-unique"><div class="progress-unique collaboration-unique"></div></div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Get <strong>In Touch</strong></h2>
+        
+        <div class="contact-container">
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <form action="https://formsubmit.co/samuelmensahquaye@gmail.com" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="phone" placeholder="Your Phone">
+                    <textarea name="message" placeholder="Write a Message" required></textarea>
+                    
+                    <!-- Optional: Prevent spam submissions -->
+                    <input type="hidden" name="_captcha" value="false">
+                    
+                    <!-- Optional: Redirect after submission -->
+                    <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+                    
                     <button type="submit">Send Message</button>
-                </div>
-                <div class="contact-details">
-                    <h3>My Contact Details</h3>
-                    <p><strong>Email:</strong> the@gmail.com</p>
-        
+                </form>
+                
             </div>
-            <div class="footer-bottom">
-                <p>Copyright © 2025 All rights reserved </p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                </div>
+    
+            <!-- Contact Details -->
+            <div class="contact-details">
+                <p><i class="fa fa-envelope"></i> samuelmensahquaye@gmail.com</p>
+                <p><i class="fa fa-map-marker"></i> Accra,Ghana</p>
             </div>
         </div>
-    </footer>
- 
+    </section>
+    
+
+    
 </body>
 </html>
