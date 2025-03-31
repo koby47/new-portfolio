@@ -31,6 +31,8 @@ body {
     transition: background 0.3s ease;
 }
 
+
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -295,7 +297,9 @@ body {
     font-size: 1rem;
     color: #bdbdbd;
 }
-
+#linkedin{
+    color: #c5db58;;
+}
 .institution,
 .company {
     font-size: 1rem;
