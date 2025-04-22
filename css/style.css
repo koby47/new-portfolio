@@ -207,10 +207,9 @@ body {
 }
 
 .portfolio-item img {
-    width: 100%;
+    width: 30%;
     border-radius: 5px;
-    height: 256px;
-    object-fit: cover;
+    
 }
 
 .portfolio-item h3 {
@@ -483,8 +482,7 @@ body {
 /* Individual Skill Bar Colors */
 .photoshop-unique { width: 90%; background: #786b04; }
 .html-unique { width: 90%; background: #786b04; }
-.css-unique { width: 80%; background: #786b04; }
-.javascript-unique { width: 80%; background: #786b04; }
+.javascript-unique { width: 90%; background: #786b04; }
 .problem-solving-unique { width: 90%; background: #c5db58; }
 .communication-unique { width: 90%; background:#c5db58 }
 .time-management-unique { width: 90%; background: #c5db58; }
