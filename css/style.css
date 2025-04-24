@@ -53,7 +53,8 @@ body {
 }
 
 .nav-links a:hover {
-    color: #f4d03f;
+    color: #A5E0B1;
+    
 }
 
 /* Hamburger Menu Styling */
@@ -104,7 +105,8 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: url('../img/backdrop.png') no-repeat center center/cover;
+    background: url('../img/ai-generated-9438277_640.jpg') no-repeat center center/cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/ai-generated-9438277_640.jpg);
     position: relative;
 }
 
@@ -185,7 +187,7 @@ body {
 
 .portfolio-filters .filter.active,
 .portfolio-filters .filter:hover {
-    color: #ffd700;
+    color: #A5E0B1;
 }
 
 /* Grid Layout */
@@ -237,6 +239,7 @@ body {
     text-align: center;
     padding: 60px 20px;
     background-color: #181818; /* Dark theme */
+  
     color: #fff;
 }
 
@@ -291,7 +294,7 @@ body {
 .title {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #c5db58; /* Yellow-green highlight */
+    color: white; /* Yellow-green highlight */
     margin: 5px 0;
 }
 
@@ -372,7 +375,7 @@ body {
 
 .about-btn {
     padding: 12px 24px;
-    border-radius: 30px;
+    border-radius: 5px;
     font-size: 14px;
     font-weight: 600;
     text-decoration: none;
@@ -382,12 +385,12 @@ body {
 }
 
 .hire-btn {
-    background: #cddc39;
+    background: whitesmoke;
     color: #000;
 }
 
 .hire-btn:hover {
-    background: #b0c22e;
+    background: #A5E0B1;
 }
 
 .cv-btn {
@@ -480,13 +483,13 @@ body {
 }
 
 /* Individual Skill Bar Colors */
-.photoshop-unique { width: 90%; background: #786b04; }
-.html-unique { width: 90%; background: #786b04; }
-.javascript-unique { width: 90%; background: #786b04; }
-.problem-solving-unique { width: 90%; background: #c5db58; }
-.communication-unique { width: 90%; background:#c5db58 }
-.time-management-unique { width: 90%; background: #c5db58; }
-.collaboration-unique { width: 90%; background: #c5db58; }
+.photoshop-unique { width: 90%; background: #f4f3f0; }
+.html-unique { width: 90%; background: #f4f3f0; }
+.javascript-unique { width: 90%; background: #f4f3f0; }
+.problem-solving-unique { width: 90%; background: #f4f3f0; }
+.communication-unique { width: 90%; background:#f4f3f0 }
+.time-management-unique { width: 90%; background: #f4f3f0; }
+.collaboration-unique { width: 90%; background: #f4f3f0; }
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -497,7 +500,7 @@ body {
 
 /* Unique Skills Section with Background */
 .skills-section-unique {
-    background: url('../img/background.jpg') no-repeat center center/cover;
+    background: url('../img/landscape-9352440_640.jpg') no-repeat center center/cover;
     padding: 60px 20px;
     color: #fff;
     text-align: center;
@@ -564,7 +567,7 @@ body {
 }
 
 .contact-form button {
-    background-color: #a6ce39;
+    background-color: white;
     color: #191919;
     padding: 10px 20px;
     border: none;
@@ -574,7 +577,7 @@ body {
 .contact-details {
     flex: 1;
     max-width: 400px;
-    color: white;
+    color: whitesmoke;
 }
 
 .contact-details p {
@@ -583,7 +586,7 @@ body {
 }
 
 .contact-details i {
-    color: #a6ce39;
+    color: whitesmoke;
     margin-right: 10px;
 }
 
