@@ -105,8 +105,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: url('../img/ai-generated-9438277_640.jpg') no-repeat center center/cover;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/ai-generated-9438277_640.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/light-1853025_1920.jpg);
     position: relative;
 }
 
@@ -500,7 +499,7 @@ body {
 
 /* Unique Skills Section with Background */
 .skills-section-unique {
-    background: url('../img/landscape-9352440_640.jpg') no-repeat center center/cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(../img/sunset-8627419_1280.jpg) ;
     padding: 60px 20px;
     color: #fff;
     text-align: center;
