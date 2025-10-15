@@ -1,362 +1,425 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaMQuaye</title>
-    
-    <!-- FontAwesome 4 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/script.js"  defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Samuel Mensah Quaye — Frontend & Cybersecurity</title>
+  <meta name="description" content="Samuel Mensah Quaye — Software developer & cybersecurity analyst. HTML • CSS • JS • Node • MongoDB. View projects, resume and contact." />
+  <meta property="og:title" content="Samuel Mensah Quaye — Developer & Cybersecurity" />
+  <meta property="og:description" content="Portfolio: projects, resume and contact." />
+
+  <!-- Tailwind CDN for quick demo (use PostCSS/Tailwind CLI for production). -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts & icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Tiny custom CSS for focus/overrides & reduced-motion -->
+  <style>
+    :root{--accent:#10b981}
+    html,body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
+    .focus-ring:focus{outline:3px solid rgba(16,185,129,0.18);outline-offset:3px}
+    @media (prefers-reduced-motion: reduce){
+      .motion-safe{animation:none !important;transition:none !important}
+    }
+  </style>
+
+  <!-- Your existing favicon if any -->
+  <link rel="icon" href="/favicon.ico" />
 </head>
-<body>
+<!-- Project Modal (drop before </body>) -->
+<div id="projectModal" class="fixed inset-0 z-60 hidden items-center justify-center px-4 py-8">
+  <!-- overlay -->
+  <div id="modalOverlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
 
+  <!-- modal panel -->
+  <div role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc"
+       class="relative max-w-3xl w-full mx-auto bg-slate-900 text-slate-100 rounded-lg shadow-xl overflow-hidden transform transition-all motion-safe:duration-200">
+    <button id="modalClose" class="absolute right-3 top-3 p-2 rounded-md text-slate-200 focus:ring-2 focus:ring-emerald-400" aria-label="Close dialog">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
 
-    <!-- Navbar -->
-<nav class="navbar">
-    <div class="logo">SaMQuaye</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Left: image -->
+      <div class="bg-slate-800 flex items-center justify-center p-4">
+        <img id="modalImage" src="" alt="" class="max-h-[60vh] w-full object-contain rounded-md" />
+      </div>
 
-    <!-- Menu Links -->
-    <ul class="nav-links" id="nav-links">
-        <li><a href="./index.html">HOME</a></li>
-        <li><a href="#portfolio">PORTFOLIO</a></li>
-        <li><a href="#resume">RESUME</a></li>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="https://wa.me/233240077236" >CONTACT</a></li>
-        <li><a href="https://github.com/koby47?tab=repositories" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i>
-        </a></li>
-        <li ><a href="https://www.linkedin.com/in/samuelmensahquaye/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true" ></i></a></li>
-    </ul>
+      <!-- Right: content -->
+      <div class="p-6 flex flex-col gap-4">
+        <h3 id="modalTitle" class="text-2xl font-bold"></h3>
+        <p id="modalDesc" class="text-slate-300 text-sm leading-relaxed"></p>
 
-    <!-- Hamburger Menu Button -->
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+        <div id="modalTech" class="flex flex-wrap gap-2 mt-2"></div>
+
+        <div class="mt-auto flex gap-3">
+          <a id="modalLive" class="hidden inline-flex items-center gap-2 px-4 py-2 rounded-md bg-emerald-500 text-slate-900 font-semibold" href="#" target="_blank" rel="noopener noreferrer">Live</a>
+          <a id="modalCode" class="hidden inline-flex items-center gap-2 px-4 py-2 rounded-md border border-slate-700 text-slate-200" href="#" target="_blank" rel="noopener noreferrer">Code</a>
+        </div>
+      </div>
     </div>
-</nav>
+  </div>
+</div>
+<body class="bg-slate-900 text-slate-100 leading-relaxed">
+  <!-- HEADER / NAV -->
+  <header class="fixed inset-x-0 top-0 z-50 bg-slate-900/60 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+        <a href="#top" class="text-emerald-300 font-extrabold text-lg">SaMQuaye</a>
 
-   
+        <nav id="mainNav" class="hidden md:flex gap-6 items-center" aria-label="Primary">
+          <a class="text-slate-200 hover:text-emerald-300 focus-ring" href="./index.html">Home</a>
+          <a class="text-slate-200 hover:text-emerald-300 focus-ring" href="#portfolio">Portfolio</a>
+          <a class="text-slate-200 hover:text-emerald-300 focus-ring" href="#resume">Resume</a>
+          <a class="text-slate-200 hover:text-emerald-300 focus-ring" href="#about">About</a>
+          <a class="text-slate-200 hover:text-emerald-300 focus-ring" href="#contact">Contact</a>
+          <a class="text-slate-200 hover:text-emerald-300" href="https://github.com/koby47?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="fa fa-github-square text-xl"></i>
+          </a>
+          <a class="text-slate-200 hover:text-emerald-300" href="https://www.linkedin.com/in/samuelmensahquaye/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fa fa-linkedin-square text-xl"></i>
+          </a>
+        </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <p>Hello, I'm</p>
-            <h1>Samuel Mensah Quaye</h1>
-            <p>A software devloper</p>
+        <!-- mobile control -->
+        <div class="md:hidden flex items-center gap-2">
+          <a href="https://wa.me/233240077236" target="_blank" rel="noopener noreferrer" class="p-2 rounded-md bg-emerald-600/10 text-emerald-300 focus-ring" aria-label="WhatsApp">
+            <i class="fa fa-whatsapp"></i>
+          </a>
+          <button id="navToggle" aria-expanded="false" aria-controls="mobileMenu" class="p-2 rounded-md text-slate-200 focus-ring">
+            <span class="sr-only">Open menu</span>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+          </button>
         </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden bg-slate-900/95 border-t border-slate-800">
+      <div class="px-6 py-4 space-y-2">
+        <a class="block text-slate-200 py-2" href="#portfolio">Portfolio</a>
+        <a class="block text-slate-200 py-2" href="#resume">Resume</a>
+        <a class="block text-slate-200 py-2" href="#about">About</a>
+        <a class="block text-slate-200 py-2" href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="pt-20">
+    <!-- HERO -->
+    <section class="min-h-[72vh] flex items-center">
+      <div class="max-w-6xl mx-auto px-6 py-20">
+        <div class="text-center">
+          <p class="uppercase tracking-wider text-sm text-emerald-300 mb-3">Hello, I'm</p>
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-md">Samuel Mensah Quaye</h1>
+          <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">I build fast, secure, and accessible web experiences — frontend development paired with a security-first mindset.</p>
+          <div class="flex gap-4 justify-center">
+            <a href="#portfolio" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-emerald-400 text-slate-900 font-semibold transform motion-safe:transition hover:scale-105">View Projects</a>
+            <a href="./pdf/Samuel_Mensah_Quaye_C_CV.pdf" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-slate-700 text-slate-200 hover:bg-slate-800">Download CV</a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="about-section" id="about">
-        <div class="about-container">
-            <div class="about-wrapper">
-                <div class="about-image">
-                    <img src="./img/Aboutme.jpg" alt="SaMQuaye">
-                </div>
-                <div class="about-details">
-                    <h2 class="about-title">About <span>Me</span></h2>
-                    <p class="about-text">
-                        I'm a results-oriented Web Developer with a strong foundation in both front-end and back-end technologies. I have hands-on experience with backend development using Node.js, Express.js, MongoDB, and Mongoose, with a strong focus on building and integrating RESTful APIs for scalable and maintainable web applications.</p>
-                    <p class="about-text">
-                        With a solid background in IT support, cybersecurity, and website management, I approach projects with a security-first mindset. I develop responsive, user-friendly websites optimized for performance, accessibility, and seamless functionality.
-
-                    </p>
-                    <p class="about-text">
-                        Skilled in troubleshooting, API development, content management, and database integration, I aim to deliver clean, efficient code and smooth user experiences that align with business goals.
-
-                    </p>
-                    
-                    <div class="about-buttons">
-                        <a href="https://wa.me/233240077236" target="_blank"    class="about-btn hire-btn">Contact Me</a>
-                        <a href="./pdf/Samuel_Mensah_Quaye_C_CV.pdf"  class="about-btn cv-btn">Download CV</a>
-                        
-                    </div>
-                </div>
+    <!-- ABOUT -->
+    <section id="about" class="bg-slate-800/40 py-14">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <div class="mx-auto">
+            <img src="./img/Aboutme.jpg" alt="Samuel Mensah Quaye portrait" loading="lazy" width="640" height="480" class="rounded-lg shadow-lg"/>
+          </div>
+          <div>
+            <h2 class="text-3xl font-bold mb-4">About <span class="text-emerald-300">Me</span></h2>
+            <p class="text-slate-300 mb-3">I'm a results-oriented Web Developer with a foundation in both front-end and back-end technologies: Node.js, Express, MongoDB, and RESTful APIs. I combine UI polish with a security-first approach.</p>
+            <p class="text-slate-300 mb-3">Background in IT support and cybersecurity helps me build resilient products with attention to accessibility, performance, and maintainability.</p>
+            <div class="flex gap-4 mt-6">
+              <a href="https://wa.me/233240077236" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-emerald-500 text-slate-900 rounded-md font-semibold focus-ring">Contact Me</a>
+              <a href="./pdf/Samuel_Mensah_Quaye_C_CV.pdf" class="px-4 py-2 border border-slate-700 rounded-md text-slate-200 hover:bg-slate-800 focus-ring">Download CV</a>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <h2 class="section-title">Featured <strong>Portfolio</strong></h2>
-            
-            <!-- Filter Buttons -->
-            <ul class="portfolio-filters">
-                <li class="filter active" data-filter="all">All</li>
-                <li class="filter" data-filter="graphic">Web API</li>
-                <li class="filter" data-filter="web">Web Development</li>
+    <!-- PORTFOLIO -->
+    <!-- Compact Portfolio (replace existing #portfolio section) -->
+<section id="portfolio" class="py-12">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Featured <span class="text-emerald-300">Portfolio</span></h2>
+
+    <!-- Filters (buttons) -->
+    <div class="flex justify-center gap-3 mb-8" role="tablist" aria-label="Portfolio filters">
+      <button class="filter-btn px-3 py-1 rounded-md bg-emerald-500 text-slate-900" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="filter-btn px-3 py-1 rounded-md bg-transparent border border-slate-700 text-slate-200" data-filter="api" role="tab" aria-selected="false">Web API</button>
+      <button class="filter-btn px-3 py-1 rounded-md bg-transparent border border-slate-700 text-slate-200" data-filter="web" role="tab" aria-selected="false">Web</button>
+    </div>
+
+    <!-- Compact grid -->
+    <div id="compactGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Example card -->
+     <!-- All portfolio cards (replace inside #compactGrid) -->
+<!-- 1) Facility Booking API -->
+<article class="compact-card api group bg-slate-800 p-4 rounded-lg shadow-sm" data-slug="ezbook-api">
+  <div class="flex items-center gap-3">
+    <img src="./img/github.png" alt="Facility Booking API logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
+    <div class="flex-1 min-w-0">
+      <h3 class="text-sm font-semibold text-slate-100">
+        <a href="https://github.com/koby47/ezbook-api" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Facility Booking API</a>
+      </h3>
+      <p class="text-xs text-slate-400 truncate">REST API · Node · Express · MongoDB</p>
+    </div>
+    <div class="flex flex-col items-end gap-2">
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-emerald-500 text-slate-900" href="https://github.com/koby47/ezbook-api" target="_blank" rel="noopener noreferrer">Code</a>
+    </div>
+  </div>
+  <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
+    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">Node.js</span>
+    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">Express</span>
+    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">MongoDB</span>
+  </div>
+</article>
+
+<!-- 2) Ecommerce API -->
+<article class="compact-card api bg-slate-800 p-4 rounded-lg shadow-sm" data-slug="ecommerce-api">
+  <div class="flex items-center gap-3">
+    <img src="./img/github.png" alt="Ecommerce API logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
+    <div class="flex-1 min-w-0">
+      <h3 class="text-sm font-semibold text-slate-100">
+        <a href="https://github.com/koby47/ecommerce-api" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Ecommerce API</a>
+      </h3>
+      <p class="text-xs text-slate-400 truncate">Payments · REST API</p>
+    </div>
+    <div class="flex flex-col items-end gap-2">
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-emerald-500 text-slate-900" href="https://github.com/koby47/ecommerce-api" target="_blank" rel="noopener noreferrer">Code</a>
+    </div>
+  </div>
+  <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
+    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">Node</span>
+    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">API</span>
+  </div>
+</article>
+
+<!-- 3) Inventory Management API -->
+<article class="compact-card api bg-slate-800 p-4 rounded-lg shadow-sm" data-slug="inventory-api">
+  <div class="flex items-center gap-3">
+    <img src="./img/github.png" alt="Inventory Management API logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
+    <div class="flex-1 min-w-0">
+      <h3 class="text-sm font-semibold text-slate-100">
+        <a href="https://github.com/koby47/inventory-api" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Inventory Management</a>
+      </h3>
+      <p class="text-xs text-slate-400 truncate">Inventory API · CRUD · MongoDB</p>
+    </div>
+    <div class="flex flex-col items-end gap-2">
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-emerald-500 text-slate-900" href="https://github.com/koby47/inventory-api" target="_blank" rel="noopener noreferrer">Code</a>
+    </div>
+  </div>
+  <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
+    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">MongoDB</span>
+    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">Express</span>
+  </div>
+</article>
+
+<!-- 4) Library Management (repo re-used inventory-api in original) -->
+<article class="compact-card api bg-slate-800 p-4 rounded-lg shadow-sm" data-slug="library-api">
+  <div class="flex items-center gap-3">
+    <img src="./img/github.png" alt="Library Management API logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
+    <div class="flex-1 min-w-0">
+      <h3 class="text-sm font-semibold text-slate-100">
+        <a href="https://github.com/koby47/inventory-api" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Library Management</a>
+      </h3>
+      <p class="text-xs text-slate-400 truncate">Library API · Catalog · CRUD</p>
+    </div>
+    <div class="flex flex-col items-end gap-2">
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-emerald-500 text-slate-900" href="https://github.com/koby47/inventory-api" target="_blank" rel="noopener noreferrer">Code</a>
+    </div>
+  </div>
+  <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
+    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">API</span>
+    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">Node</span>
+  </div>
+</article>
+
+<!-- 5) Advertisement (original index.html used inventory-api link) -->
+<article class="compact-card api bg-slate-800 p-4 rounded-lg shadow-sm" data-slug="advertisement-api">
+  <div class="flex items-center gap-3">
+    <img src="./img/github.png" alt="Advertisement API logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
+    <div class="flex-1 min-w-0">
+      <h3 class="text-sm font-semibold text-slate-100">
+        <a href="https://github.com/koby47/inventory-api" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Advertisement (API)</a>
+      </h3>
+      <p class="text-xs text-slate-400 truncate">Ads API · Campaigns</p>
+    </div>
+    <div class="flex flex-col items-end gap-2">
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-emerald-500 text-slate-900" href="https://github.com/koby47/inventory-api" target="_blank" rel="noopener noreferrer">Code</a>
+    </div>
+  </div>
+  <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
+    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">API</span>
+  </div>
+</article>
+
+<!-- 6) Ezbook (Frontend) - live -->
+<article class="compact-card web bg-slate-800 p-4 rounded-lg shadow-sm" data-slug="ezbook-web">
+  <div class="flex items-center gap-3">
+    <img src="./img/github.png" alt="Ezbook frontend logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
+    <div class="flex-1 min-w-0">
+      <h3 class="text-sm font-semibold text-slate-100">
+        <a href="https://ezbooki.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Ezbook (Frontend)</a>
+      </h3>
+      <p class="text-xs text-slate-400 truncate">React · Netlify</p>
+    </div>
+    <div class="flex flex-col items-end gap-2">
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-emerald-500 text-slate-900" href="https://ezbooki.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
+    </div>
+  </div>
+  <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
+    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">React</span>
+    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">Netlify</span>
+  </div>
+</article>
+
+<!-- 7) Sign Natural Academy (frontend) -->
+<article class="compact-card web bg-slate-800 p-4 rounded-lg shadow-sm" data-slug="signnatural">
+  <div class="flex items-center gap-3">
+    <img src="./img/github.png" alt="Sign Natural Academy logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
+    <div class="flex-1 min-w-0">
+      <h3 class="text-sm font-semibold text-slate-100">
+        <a href="https://signnaturalacademy.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Sign Natural Academy</a>
+      </h3>
+      <p class="text-xs text-slate-400 truncate">MERN Frontend</p>
+    </div>
+    <div class="flex flex-col items-end gap-2">
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-emerald-500 text-slate-900" href="https://signnaturalacademy.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
+    </div>
+  </div>
+  <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
+    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">React</span>
+    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">MERN</span>
+  </div>
+</article>
+
+<!-- 8) Personal Portfolio (this site) -->
+<article class="compact-card web bg-slate-800 p-4 rounded-lg shadow-sm" data-slug="personal-portfolio">
+  <div class="flex items-center gap-3">
+    <img src="./img/github.png" alt="Personal Portfolio logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
+    <div class="flex-1 min-w-0">
+      <h3 class="text-sm font-semibold text-slate-100">
+        <span class="inline-block truncate">Personal Portfolio</span>
+      </h3>
+      <p class="text-xs text-slate-400 truncate">HTML · Tailwind · JavaScript</p>
+    </div>
+    <div class="flex flex-col items-end gap-2">
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-emerald-500 text-slate-900" href="#" onclick="alert('This is the current site — replace with live link if available')">Info</a>
+    </div>
+  </div>
+  <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
+    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">HTML</span>
+    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">JS</span>
+  </div>
+</article>
+
+
+      <!-- Add more cards here for Inventory, Sign Natural, Portfolio etc. -->
+    </div>
+  </div>
+</section>
+
+
+    <!-- RESUME -->
+   <!-- RESUME (data-driven) -->
+<section id="resume" class="py-16 bg-slate-900/40">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-8">My <span class="text-emerald-300">Resume</span></h2>
+
+    <!-- Renderer will inject two columns here -->
+    <div id="resumeGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8" aria-live="polite"></div>
+
+    <div class="mt-6 text-center">
+      <a id="downloadCv" href="./pdf/Samuel_Mensah_Quaye_C_CV.pdf" class="inline-block px-4 py-2 bg-emerald-500 text-slate-900 rounded-md font-semibold focus-ring">Download Full CV (PDF)</a>
+    </div>
+  </div>
+</section>
+
+
+    <!-- SKILLS -->
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-8">My <span class="text-emerald-300">Skills</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h4 class="font-semibold mb-4">Technical</h4>
+            <ul class="space-y-4">
+              <li>
+                <div class="flex justify-between mb-2"><span>HTML</span><span class="text-slate-400">90%</span></div>
+                <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden"><div class="bg-emerald-400 h-3 w-0 skill-bar" data-percent="90"></div></div>
+              </li>
+              <li>
+                <div class="flex justify-between mb-2"><span>CSS</span><span class="text-slate-400">90%</span></div>
+                <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden"><div class="bg-emerald-400 h-3 w-0 skill-bar" data-percent="90"></div></div>
+              </li>
+              <li>
+                <div class="flex justify-between mb-2"><span>JavaScript</span><span class="text-slate-400">85%</span></div>
+                <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden"><div class="bg-emerald-400 h-3 w-0 skill-bar" data-percent="85"></div></div>
+              </li>
+              <!-- add more -->
             </ul>
-    
-            <!-- Portfolio Grid -->
+          </div>
 
-
-            
-             
-            <div class="portfolio-grid">
-                <div class="portfolio-item graphic">
-                    <img src="./img/github.png" alt="Ecommerce API" width="256px" >
-                    <h3><a href="https://github.com/koby47/ezbook-api" target="_blank"><button>Facility Booking </h3></button></a>
-                    <span>API</span>
-                    <!-- <div class="about-buttons">
-                        <a href="https://github.com/koby47/ecommerce-api" class="about-btn hire-btn" target="_blank">Visit</a>
-                    </div> -->
-                </div>
-
-                <div class="portfolio-item graphic">
-                    <img src="./img/github.png" alt="Ecommerce"  width="256px">
-                    <h3><a href="https://github.com/koby47/ecommerce-api" target="_blank"><button>Ecommerce</h3></button></a>
-                    <span>API</span>
-                    <!-- <div class="about-buttons">
-                        <a href="" class="about-btn hire-btn" target="_blank">Visit</a>
-                    </div> -->
-                </div>
-
-
-
-                <div class="portfolio-item graphic">
-                    <img src="./img/github.png" alt="Inventory management API"  width="256px">
-                    <h3><a href="https://github.com/koby47/inventory-api" target="_blank"><button>Inventory Management</h3></button></a>
-                    <span>API</span>
-                    <!-- <div class="about-buttons">
-                        <a href="" class="about-btn hire-btn" target="_blank">Visit</a>
-                    </div> -->
-                </div>
-                <div class="portfolio-item graphic">
-                    <img src="./img/github.png" alt="library management API" >
-                    <h3><a href="https://github.com/koby47/inventory-api" target="_blank"><button>Library Management</button></a></h3>
-                    <span>API</span>
-                    <!-- <div class="about-buttons">
-                        <a href=" class="about-btn hire-btn" target="_blank">Visit</a>
-                    </div> -->
-                </div>
-                <div class="portfolio-item graphic">
-                    <img src="./img/github.png" alt="web Advertisement">
-                    <h3><a href="https://github.com/koby47/inventory-api"> <button>Advertisement</button></a></h3>
-                    <span>API</span>
-                    <!-- <div class="about-buttons">
-                        <a href="" class="about-btn hire-btn" target="_blank">Visit</a>
-                    </div> -->
-                </div>
-                <div class="portfolio-item web">
-                    <img src="./img/github.png" alt="Ezbook" >
-                    <h3> <a href="https://ezbooki.netlify.app/" target="_blank"><button>Facility Booking</button></a></h3>
-                    <span>Ezbook</span>
-                    <!-- <div class="about-buttons">
-                        <a href="" class="about-btn hire-btn" target="_blank">Visit</a>
-                    </div> -->
-                </div>
-               
-                <div class="portfolio-item web">
-                    <img src="./img/github.png" alt="signnaturalacademy">
-                    <h3><a href="https://signnaturalacademy.netlify.app/" target="_blank"><button >Sign Natural</button></a></h3>
-                    <span>Sign Natural Academy</span>
-                    <!-- <div class="about-buttons">
-                        <a href="" class="about-btn hire-btn"  target="_blank">Visit</a>
-                    </div> -->
-                </div>
-                
-                <div class="portfolio-item web">
-                    <img src="./img/github.png" alt="Web Development">
-                    <h3><a><button>Portfolio webpage</button></a></h3>
-                    <span>Personal Portfolio</span>
-                    <!-- <div class="about-buttons">
-                        <a href="https://github.com/koby47/webadvertisement-api" class="about-btn hire-btn" target="_blank">Visit</a>
-                    </div> -->
-                </div>
-            </div>
+          <div>
+            <h4 class="font-semibold mb-4">Soft Skills</h4>
+            <ul class="space-y-4">
+              <li>
+                <div class="flex justify-between mb-2"><span>Problem Solving</span><span class="text-slate-400">90%</span></div>
+                <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden"><div class="bg-emerald-400 h-3 w-0 skill-bar" data-percent="90"></div></div>
+              </li>
+              <li>
+                <div class="flex justify-between mb-2"><span>Communication</span><span class="text-slate-400">90%</span></div>
+                <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden"><div class="bg-emerald-400 h-3 w-0 skill-bar" data-percent="90"></div></div>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section id="resume">
-        <h2>My <strong>Resume</strong></h2>
-        <div class="resume-container">
-            <!-- Education Section -->
-            <div class="resume-column">
-                <h3>Education & Certification</h3>
-                <div class="resume-card">
-                    <p class="date">February 2025 - May 2025</p>
-                    <h4 class="title">Web Developer</h4>
-                    <p class="description">
-                       Mest Africa
-                    </p>
-                    <p class="institution">Accra,Ghans</p>
-                </div>
-                <div class="resume-card">
-                    <p class="date">January 2025 - February 2025</p>
-                    <h4 class="title">Web Development Fundamentals</h4>
-                    <p class="description">
-                       IBM <a href="https://www.credly.com/badges/d08d0a78-6e1c-4611-9a42-560d1010746d/linked_in_profile" target="_blank"><button >Credential</button></a>
-                    </p>
-                    <p class="institution">online</p>
-                </div>
-                <div class="resume-card">
-                    <p class="date">November 2024 - Present </p>
-                    <h4 class="title">Junior Cybersecurity Analyst</h4>
-                    <p class="description">
-                        Cisco Networking Academy <a href="https://www.credly.com/badges/471e0511-86ee-4326-bf65-78f5807386da/linked_in_profile" target="_blank"><button >Credential</button></a>
-                    </p>
-                    <p class="institution">online</p>
-                </div>
-                <div class="resume-card">
-                    <p class="date">July 2024 </p>
-                    <h4 class="title">Certified in Cybersecurity </h4>
-                    <p class="description">
-                        ISC2 <a href="https://www.credly.com/badges/945d311d-e109-4555-a6d2-a8563896ad7e/linked_in_profile"  target="_blank"><button >credential </button></a>
-                    </p>
-                    <p class="institution">Ghana,Accra</p>
-                </div>
-                <div class="resume-card">
-                    <p class="date">May 2013 - May 2015</p>
-                    <h4 class="title">B.A. Communication Studies</h4>
-                    <p class="description">
-                        Ghana Institute of Journalism (UNIMAC)
-                    </p>
-                    <p class="institution">Ghana,Accra</p>
-                </div>
-            </div>
-    
-            <!-- Experience Section -->
-            <div class="resume-column">
-                <h3>Experience</h3>
-                <div class="resume-card">
-                    <p class="date">February 2023 - Present</p>
-                    <h4 class="title">IT and Administrative Support
-                    </h4>
-                    <p class="description">Designed and updated client websites using WordPress and Joomla, 
-                        ensuring security and responsiveness.Performed regular system backups and 
-                        implemented basic security measures to protect company data.
+    <!-- CONTACT -->
+    <section id="contact" class="py-16 bg-slate-900/40">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-6">Get <span class="text-emerald-300">In Touch</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <form id="contactForm" action="https://formsubmit.co/samuelmensahquaye@gmail.com" method="POST" class="space-y-4 bg-slate-800 p-6 rounded-md shadow">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+            <label class="sr-only" for="name">Name</label>
+            <input id="name" name="name" required placeholder="Your name" class="w-full p-3 bg-slate-900/50 rounded border border-slate-700 focus-ring" />
+            <label class="sr-only" for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="Your email" class="w-full p-3 bg-slate-900/50 rounded border border-slate-700 focus-ring" />
+            <label class="sr-only" for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Message" class="w-full p-3 bg-slate-900/50 rounded border border-slate-700 focus-ring"></textarea>
+            <button type="submit" class="px-4 py-2 bg-emerald-500 text-slate-900 rounded font-semibold">Send Message</button>
+            <div id="formStatus" aria-live="polite" class="text-sm text-emerald-300"></div>
+          </form>
 
-                    </p>
-                    <p class="company">Secure Eyes</p>
-                </div>
-                <div class="resume-card">
-                    <p class="date">November 2018 - January 2023</p>
-                    <h4 class="title">Administrative Assistant</h4>
-                    <p class="description">
-                        Created marketing materials (brochures, flyers) and coordinated over 20 property viewings monthly. Managed office inventory, reducing supply costs by 15% through strategic vendor negotiations.
-                    <p class="company">Joella Properties</p>
-                </div>
-                <div class="resume-card">
-                    <p class="date">March 2013 - October 2018</p>
-                    <h4 class="title">Office Coordinator
-                    </h4>
-                    <p class="description">
-                        Assist in designing and creating visuals for websites.Troubleshoot and configure desktop hardware.
-                    </p>
-                    <p class="company">Anaess Communication Limited</p>
-                </div>
-                <div class="resume-card">
-                    <p class="date">August 2009 - March 2010</p>
-                    <h4 class="title">Computer Repair Technician</h4>
-                    <p class="description">
-                        Troubleshoot and repair desktop computers.	Upgrade software and perform maintenance tasks on desktop computers.
-                    </p>
-                    <p class="company">Redan Systems Ltd </p>
-                </div>
+          <div class="p-6 rounded-md">
+            <div class="bg-slate-800 p-6 rounded-md shadow">
+              <p class="mb-2"><i class="fa fa-envelope mr-2"></i> samuelmensahquaye@gmail.com</p>
+              <p class="mb-2"><i class="fa fa-map-marker mr-2"></i> Accra, Ghana</p>
+              <p class="text-slate-400">Available for remote and on-site opportunities. Open to freelance and full-time roles.</p>
             </div>
+          </div>
         </div>
+      </div>
     </section>
-  
+  </main>
 
-    <section class="skills-section-unique">
-        <div class="skills-container-unique">
-            <h2 class="skills-title-unique">My <strong>Skills</strong></h2>
-            <div class="skills-wrapper-unique">
-                
-                <!-- Technical Skills -->
-                <div class="skills-column-unique">
-                    <h3 class="skills-subtitle-unique">Technical Skills</h3>
-                    <div class="skill-unique">
-                        <p>Adobe Photoshop <span class="skill-percentage-unique">90%</span></p>
-                        <div class="progress-bar-unique"><div class="progress-unique photoshop-unique"></div></div>
-                    </div>
-                    <div class="skill-unique">
-                        <p>HTML <span class="skill-percentage-unique">90%</span></p>
-                        <div class="progress-bar-unique"><div class="progress-unique html-unique"></div></div>
-                    </div>
-                    <div class="skill-unique">
-                        <p>CSS <span class="skill-percentage-unique">90%</span></p>
-                        <div class="progress-bar-unique"><div class="progress-unique html-unique"></div></div>
-                    </div>
-                    
-                    <div class="skill-unique">
-                        <p>JavaScript <span class="skill-percentage-unique">90%</span></p>
-                        <div class="progress-bar-unique"><div class="progress-unique html-unique"></div></div>
-                    </div>
-                    <div class="skill-unique">
-                        <p>MongoDB <span class="skill-percentage-unique">90%</span></p>
-                        <div class="progress-bar-unique"><div class="progress-unique javascript-unique html-unique"></div></div>
-                    </div>
-                    <div class="skill-unique">
-                        <p>Express.js  <span class="skill-percentage-unique">90%</span></p>
-                        <div class="progress-bar-unique"><div class="progress-unique javascript-unique html-unique"></div></div>
-                    </div>
-                    <div class="skill-unique">
-                        <p>Node.js  <span class="skill-percentage-unique">90%</span></p>
-                        <div class="progress-bar-unique"><div class="progress-unique javascript-unique html-unique"></div></div>
-                    </div>
-                </div>
-    
-                <!-- Soft Skills -->
-                <div class="skills-column-unique">
-                    <h3 class="skills-subtitle-unique">Soft Skills</h3>
-                    <div class="skill-unique">
-                        <p>Problem-Solving <span class="skill-percentage-unique">90%</span></p>
-                        <div class="progress-bar-unique"><div class="progress-unique problem-solving-unique"></div></div>
-                    </div>
-                    <div class="skill-unique">
-                        <p>Communication <span class="skill-percentage-unique">90%</span></p>
-                        <div class="progress-bar-unique"><div class="progress-unique communication-unique"></div></div>
-                    </div>
-                    <div class="skill-unique">
-                        <p>Time Management <span class="skill-percentage-unique">90%</span></p>
-                        <div class="progress-bar-unique"><div class="progress-unique time-management-unique"></div></div>
-                    </div>
-                    <div class="skill-unique">
-                        <p>Collaboration <span class="skill-percentage-unique">90%</span></p>
-                        <div class="progress-bar-unique"><div class="progress-unique collaboration-unique"></div></div>
-                    </div>
-                </div>
-    
-            </div>
-        </div>
-    </section>
+  <footer class="py-8 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-6 text-center text-slate-400">
+      © <span id="year"></span> Samuel Mensah Quaye — built with HTML, Tailwind & curiosity.
+    </div>
+  </footer>
 
-    <section id="contact" class="contact-section">
-        <h2 class="section-title">Get <strong>In Touch</strong></h2>
-        
-        <div class="contact-container">
-            <!-- Contact Form -->
-            <div class="contact-form">
-                <form action="https://formsubmit.co/samuelmensahquaye@gmail.com" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <input type="text" name="phone" placeholder="Your Phone">
-                    <textarea name="message" placeholder="Write a Message" required></textarea>
-                    
-                    <!-- Optional: Prevent spam submissions -->
-                    <input type="hidden" name="_captcha" value="false">
-                    
-                    <!-- Optional: Redirect after submission -->
-                    <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
-                    
-                    <button type="submit">Send Message</button>
-                </form>
-                
-            </div>
-    
-            <!-- Contact Details -->
-            <div class="contact-details">
-                <p><i class="fa fa-envelope"></i> samuelmensahquaye@gmail.com</p>
-                <p><i class="fa fa-map-marker"></i> Accra,Ghana</p>
-                
-            </div>
-        </div>
-    </section>
-    
-
-    
+  <script src="./js/script.js" defer></script>
 </body>
 </html>
