@@ -1,5 +1,7 @@
 // script.js - Tailwind refactor interactivity
 document.addEventListener('DOMContentLoaded', () => {
+
+ 
   // Year
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -14,8 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileMenu.classList.toggle('hidden');
     });
     window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) mobileMenu.classList.add('hidden');
-    });
+  if (window.innerWidth >= 768) {
+    mobileMenu.classList.add('hidden');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
   }
 
   // Compact portfolio filters (add/append in script.js)
@@ -30,11 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
     filterBtns.forEach(b => {
       b.classList.remove('bg-emerald-500', 'text-slate-900');
       b.classList.add('bg-transparent','border','border-slate-700','text-slate-200');
-      b.setAttribute('aria-selected', 'false');
+      b.setAttribute('aria-pressed', 'false');
     });
     btn.classList.add('bg-emerald-500','text-slate-900');
     btn.classList.remove('bg-transparent');
-    btn.setAttribute('aria-selected', 'true');
+  btn.setAttribute('aria-pressed', 'true');
   };
 
   filterBtns.forEach(btn => {
@@ -46,17 +52,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const matches = f === 'all' || card.classList.contains(f);
         // smooth show/hide using opacity/transform
         if (matches) {
-          card.classList.remove('opacity-0','scale-95','pointer-events-none');
-          card.style.transition = 'opacity 250ms ease, transform 250ms ease';
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0) scale(1)';
-        } else {
-          card.style.transition = 'opacity 250ms ease, transform 250ms ease';
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(6px) scale(0.98)';
-          // keep in layout but non-interactive
-          setTimeout(() => card.classList.add('pointer-events-none'), 260);
-        }
+  card.classList.remove('pointer-events-none');
+  card.style.opacity = '1';
+  card.style.transform = 'translateY(0) scale(1)';
+  card.setAttribute('aria-hidden', 'false');
+  card.setAttribute('tabindex', '0');
+} else {
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(6px) scale(0.98)';
+  card.setAttribute('aria-hidden', 'true');
+  card.setAttribute('tabindex', '-1');
+  setTimeout(() => card.classList.add('pointer-events-none'), 260);
+}
+
       });
     });
 
@@ -74,11 +82,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const link = card.querySelector('a');
     if (!link) return;
     card.tabIndex = 0;
+   // make cards keyboard-focus friendly: Enter opens primary link
+  cards.forEach(card => {
+    const link = card.querySelector('a');
+    if (!link) return;
+    card.tabIndex = 0;
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         link.click();
       }
     });
+  });
   });
 })();
 
@@ -96,7 +110,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }, ioOptions);
 
   // observe resume cards and portfolio items
-  document.querySelectorAll('.portfolio-item, .resume-card, .skills-wrapper-unique, .about-image img').forEach(el => {
+  document.querySelectorAll(
+  '.compact-card,  #about img'
+)
+.forEach(el => {
     el.classList.add('opacity-0', 'translate-y-6');
     el.style.transition = 'opacity 500ms ease, transform 500ms ease';
     observer.observe(el);
@@ -111,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const percent = parseInt(bar.dataset.percent || '0', 10);
         bar.style.width = percent + '%';
         bar.style.transition = 'width 1300ms ease-in-out';
-        skillObserver.unobserve(bar);
+        
       }
     });
   }, { threshold: 0.25 });
@@ -277,62 +294,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
-// Resume reveal animations & skill-bar logic (append to script.js)
-(function () {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) {
-    // If user prefers reduced motion, just make elements visible
-    document.querySelectorAll('.resume-card').forEach(el => {
-      el.style.opacity = 1;
-      el.style.transform = 'none';
-    });
-    // Also set skill bars instantly if present
-    document.querySelectorAll('.skill-bar').forEach(bar => {
-      bar.style.width = (bar.dataset.percent || '0') + '%';
-    });
-    return;
-  }
 
-  const revealObserver = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        el.style.transition = 'opacity 600ms cubic-bezier(.2,.9,.3,1), transform 600ms cubic-bezier(.2,.9,.3,1)';
-        el.style.opacity = 1;
-        el.style.transform = 'translateY(0)';
-        obs.unobserve(el);
-      }
-    });
-  }, { root: null, rootMargin: '0px 0px -8% 0px', threshold: 0.15 });
+ 
 
-  // initialize resume cards to hidden/translated state
-  document.querySelectorAll('.resume-card').forEach(el => {
-    el.style.opacity = 0;
-    el.style.transform = 'translateY(18px)';
-    revealObserver.observe(el);
-  });
-
-  // skill bars (if any in resume section) — animate when they come into view
-  const skillBars = Array.from(document.querySelectorAll('.skill-bar'));
-  if (skillBars.length) {
-    const skillObserver = new IntersectionObserver((entries, obs) => {
-      entries.forEach(en => {
-        if (en.isIntersecting) {
-          const bar = en.target;
-          const percent = parseInt(bar.dataset.percent || '0', 10);
-          bar.style.transition = 'width 1300ms ease-in-out';
-          bar.style.width = percent + '%';
-          obs.unobserve(bar);
-        }
-      });
-    }, { threshold: 0.25 });
-
-    skillBars.forEach(b => {
-      b.style.width = '0%';
-      skillObserver.observe(b);
-    });
-  }
-})();
 
 /// Data-driven resume renderer (updated: adds spacing between cards)
 // Replace your existing renderer block with this code.
@@ -433,7 +397,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // markup builder for a resume card
   function buildCard(item) {
-    const card = el('article', { cls: 'resume-card bg-slate-800 p-5 rounded-lg shadow-md will-change-transform', attrs: { 'data-id': item.id } });
+   const card = el('article', {
+  cls: 'resume-card bg-slate-800 p-5 rounded-lg shadow-md will-change-transform opacity-0 translate-y-[18px]'
+});
+
 
     const date = el('p', { cls: 'text-sm text-slate-400', text: item.date || '' });
     const title = el('h4', { cls: 'font-bold text-lg mt-1 text-slate-100', text: item.title || '' });
