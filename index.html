@@ -18,45 +18,66 @@
 
   <!-- Tiny custom CSS for focus/overrides & reduced-motion -->
   <style>
-    :root{--accent:#10b981}
-    html,body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
-    .focus-ring:focus{outline:3px solid rgba(16,185,129,0.18);outline-offset:3px}
-    @media (prefers-reduced-motion: reduce){
-      .motion-safe{animation:none !important;transition:none !important}
-    }
+    :root {
+  --primary: #0A66FF;
+  --white: #FFFFFF;
+
+  --text-primary: #1A1A1A;
+  --text-secondary: #4A4A4A;
+
+  --border: #E6EAF0;
+  --bg-soft: #F7F9FC;
+}
+
+html, body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.focus-ring:focus {
+  outline: 3px solid rgba(10, 102, 255, 0.25);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
   </style>
 
   <!-- Your existing favicon if any -->
   <link rel="icon" href="/favicon.ico" />
 </head>
 
-<body class="bg-slate-900 text-slate-100 leading-relaxed">
+<body class="bg-white text-[#1A1A1A] leading-relaxed">
   <!-- HEADER / NAV -->
-  <header class="fixed inset-x-0 top-0 z-50 bg-slate-900/60 backdrop-blur-md">
+  <header class="fixed inset-x-0 top-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#E6EAF0]">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex items-center justify-between h-16">
-        <a href="#top" class="text-emerald-300 font-extrabold text-lg">SaMQuaye</a>
+        <a href="#top" class="text-[#0A66FF] font-extrabold text-lg">SaMQuaye</a>
 
         <nav id="mainNav" class="hidden md:flex gap-6 items-center" aria-label="Primary">
-          <a class="text-slate-200 hover:text-emerald-300 focus-ring" href="./index.html">Home</a>
-          <a class="text-slate-200 hover:text-emerald-300 focus-ring" href="#portfolio">Portfolio</a>
-          <a class="text-slate-200 hover:text-emerald-300 focus-ring" href="#resume">Resume</a>
-          <a class="text-slate-200 hover:text-emerald-300 focus-ring" href="#about">About</a>
-          <a class="text-slate-200 hover:text-emerald-300 focus-ring" href="#contact">Contact</a>
-          <a class="text-slate-200 hover:text-emerald-300" href="https://github.com/koby47?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <a class="text-[#1A1A1A] hover:text-[#0A66FF] focus-ring" href="./index.html">Home</a>
+          <a class="text-[#1A1A1A] hover:text-[#0A66FF] focus-ring" href="#portfolio">Portfolio</a>
+          <a class="text-[#1A1A1A] hover:text-[#0A66FF] focus-ring" href="#resume">Resume</a>
+          <a class="text-[#1A1A1A] hover:text-[#0A66FF] focus-ring" href="#about">About</a>
+          <a class="text-[#1A1A1A] hover:text-[#0A66FF] focus-ring" href="#contact">Contact</a>
+          <a class="text-[#1A1A1A] hover:text-[#0A66FF]" href="https://github.com/koby47?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <i class="fa fa-github-square text-xl"></i>
           </a>
-          <a class="text-slate-200 hover:text-emerald-300" href="https://www.linkedin.com/in/samuelmensahquaye/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a class="text-[#1A1A1A] hover:text-[#0A66FF]" href="https://www.linkedin.com/in/samuelmensahquaye/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <i class="fa fa-linkedin-square text-xl"></i>
           </a>
         </nav>
 
         <!-- mobile control -->
         <div class="md:hidden flex items-center gap-2">
-          <a href="https://wa.me/233240077236" target="_blank" rel="noopener noreferrer" class="p-2 rounded-md bg-emerald-600/10 text-emerald-300 focus-ring" aria-label="WhatsApp">
+          <a href="https://wa.me/233240077236" target="_blank" rel="noopener noreferrer" class="p-2 rounded-md bg-emerald-600/10 text-slate-400 focus-ring" aria-label="WhatsApp">
             <i class="fa fa-whatsapp"></i>
           </a>
-          <button id="navToggle" aria-expanded="false" aria-controls="mobileMenu" class="p-2 rounded-md text-slate-200 focus-ring">
+          <button id="navToggle" aria-expanded="false" aria-controls="mobileMenu" class="p-2 rounded-md text-[#1A1A1A] focus-ring">
             <span class="sr-only">Open menu</span>
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
           </button>
@@ -65,12 +86,13 @@
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobileMenu" class="md:hidden hidden bg-slate-900/95 border-t border-slate-800">
+    <div id="mobileMenu" class="md:hidden hidden bg-white border-[#E6EAF0]
+">
       <div class="px-6 py-4 space-y-2">
-        <a class="block text-slate-200 py-2" href="#portfolio">Portfolio</a>
-        <a class="block text-slate-200 py-2" href="#resume">Resume</a>
-        <a class="block text-slate-200 py-2" href="#about">About</a>
-        <a class="block text-slate-200 py-2" href="#contact">Contact</a>
+        <a class="block text-[#1A1A1A] py-2" href="#portfolio">Portfolio</a>
+        <a class="block text-[#1A1A1A] py-2" href="#resume">Resume</a>
+        <a class="block text-[#1A1A1A] py-2" href="#about">About</a>
+        <a class="block text-[#1A1A1A] py-2" href="#contact">Contact</a>
       </div>
     </div>
   </header>
@@ -80,31 +102,31 @@
     <section class="min-h-[72vh] flex items-center">
       <div class="max-w-6xl mx-auto px-6 py-20">
         <div class="text-center">
-          <p class="uppercase tracking-wider text-sm text-emerald-300 mb-3">Hello, I'm</p>
+          <p class="uppercase tracking-wider text-sm text-[#0A66FF] mb-3">Hello, I'm</p>
           <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-md">Samuel Mensah Quaye</h1>
-          <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">I build fast, secure, and accessible web experiences — frontend development paired with a security-first mindset.</p>
+          <p class="text-lg md:text-xl text-[#4A4A4A] mb-8 max-w-2xl mx-auto">I build fast, secure, and accessible web experiences — frontend development paired with a security-first mindset.</p>
           <div class="flex gap-4 justify-center">
-            <a href="#portfolio" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-emerald-400 text-slate-900 font-semibold transform motion-safe:transition hover:scale-105">View Projects</a>
-            <a href="./pdf/Samuel_Mensah_Quaye_C_CV.pdf" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-slate-700 text-slate-200 hover:bg-slate-800" d>Download CV</a>
+            <a href="#portfolio" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#0A66FF] text-white text-slate-900 font-semibold transform motion-safe:transition hover:scale-105">View Projects</a>
+            <a href="./pdf/Samuel_Mensah_Quaye_C_CV.pdf" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-[#E6EAF0] text-[#1A1A1A] hover:bg-[#F0F4FF]" d>Download CV</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="bg-slate-800/40 py-14">
+    <section id="about" class="bg-[#F7F9FC] py-14">
       <div class="max-w-6xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div class="mx-auto">
             <img src="./img/Aboutme.jpg" alt="Samuel Mensah Quaye portrait" loading="lazy" width="640" height="480" class="rounded-lg shadow-lg"/>
           </div>
           <div>
-            <h2 class="text-3xl font-bold mb-4">About <span class="text-emerald-300">Me</span></h2>
-            <p class="text-slate-300 mb-3">I'm a results-oriented Web Developer with a foundation in both front-end and back-end technologies: Node.js, Express, MongoDB, and RESTful APIs. I combine UI polish with a security-first approach.</p>
-            <p class="text-slate-300 mb-3">Background in IT support and cybersecurity helps me build resilient products with attention to accessibility, performance, and maintainability.</p>
+            <h2 class="text-3xl font-bold mb-4">About <span class="text-[#0A66FF]">Me</span></h2>
+            <p class="text-[#4A4A4A] mb-3">I'm a results-oriented Web Developer with a foundation in both front-end and back-end technologies: Node.js, Express, MongoDB, and RESTful APIs. I combine UI polish with a security-first approach.</p>
+            <p class="text-[#4A4A4A] mb-3">Background in IT support and cybersecurity helps me build resilient products with attention to accessibility, performance, and maintainability.</p>
             <div class="flex gap-4 mt-6">
-              <a href="https://wa.me/233240077236" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-emerald-500 text-slate-900 rounded-md font-semibold focus-ring">Contact Me</a>
-              <a href="./pdf/Samuel_Mensah_Quaye_C_CV.pdf" class="px-4 py-2 border border-slate-700 rounded-md text-slate-200 hover:bg-slate-800 focus-ring">Download CV</a>
+              <a href="https://wa.me/233240077236" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-[#0A66FF] text-white rounded-md font-semibold focus-ring">Contact Me</a>
+              <a href="./pdf/Samuel_Mensah_Quaye_C_CV.pdf"  class="px-4 py-2 border border-[#E6EAF0] rounded-md text-[#1A1A1A] hover:bg-[#F7F9FC] focus-ring">Download CV</a>
             </div>
           </div>
         </div>
@@ -115,13 +137,13 @@
     <!-- Compact Portfolio (replace existing #portfolio section) -->
 <section id="portfolio" class="py-12">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Featured <span class="text-emerald-300">Portfolio</span></h2>
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Featured <span class="text-[#0A66FF]">Portfolio</span></h2>
 
     <!-- Filters (buttons) -->
     <div class="flex justify-center gap-3 mb-8"  aria-label="Portfolio filters">
-      <button class="filter-btn px-3 py-1 rounded-md bg-emerald-500 text-slate-900" data-filter="all" aria-pressed="true">All</button>
-      <button class="filter-btn px-3 py-1 rounded-md bg-transparent border border-slate-700 text-slate-200" data-filter="api"  aria-pressed="true">Web API</button>
-      <button class="filter-btn px-3 py-1 rounded-md bg-transparent border border-slate-700 text-slate-200" data-filter="web"  aria-pressed="true">Web</button>
+      <button class="filter-btn px-3 py-1 rounded-md bg-[#0A66FF] text-white" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter-btn px-3 py-1 rounded-md bg-transparent border border-[#E6EAF0] text-[#1A1A1A]" data-filter="api"  aria-pressed="true">Web API</button>
+      <button class="filter-btn px-3 py-1 rounded-md bg-transparent border border-[#E6EAF0] text-[#1A1A1A]" data-filter="web"  aria-pressed="true">Web</button>
     </div>
 
     <!-- Compact grid -->
@@ -129,162 +151,194 @@
       <!-- Example card -->
      <!-- All portfolio cards (replace inside #compactGrid) -->
 <!-- 1) Facility Booking API -->
-<article class="compact-card api group bg-slate-800 p-4 rounded-lg shadow-sm" data-slug="ezbook-api">
+<article class="compact-card api group bg-white p-4 rounded-lg shadow-sm border border-[#E6EAF0]" data-slug="ezbook-api">
   <div class="flex items-center gap-3">
     <img src="./img/github.png" alt="Facility Booking API logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
     <div class="flex-1 min-w-0">
-      <h3 class="text-sm font-semibold text-slate-100">
+      <h3 class="text-sm font-semibold text-[#1A1A1A]">
         <a href="https://github.com/koby47/ezbook-api" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Facility Booking API</a>
       </h3>
-      <p class="text-xs text-slate-400 truncate">REST API · Node · Express · MongoDB</p>
+      <p class="text-xs text-[#4A4A4A] truncate">REST API · Node · Express · MongoDB</p>
     </div>
     <div class="flex flex-col items-end gap-2">
-      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-emerald-500 text-slate-900" href="https://github.com/koby47/ezbook-api" target="_blank" rel="noopener noreferrer">Code</a>
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-[#0A66FF] text-white" href="https://github.com/koby47/ezbook-api" target="_blank" rel="noopener noreferrer">Code</a>
     </div>
   </div>
   <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
-    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">Node.js</span>
-    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">Express</span>
-    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">MongoDB</span>
+   <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>Node.js</span>
+    <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>Express</span>
+    <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>MongoDB</span>
   </div>
 </article>
 
 <!-- 2) Ecommerce API -->
-<article class="compact-card api bg-slate-800 p-4 rounded-lg shadow-sm" data-slug="ecommerce-api">
+<article class="compact-card api bg-white p-4 rounded-lg shadow-sm border border-[#E6EAF0]" data-slug="ecommerce-api">
   <div class="flex items-center gap-3">
     <img src="./img/github.png" alt="Ecommerce API logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
     <div class="flex-1 min-w-0">
-      <h3 class="text-sm font-semibold text-slate-100">
+      <h3 class="text-sm font-semibold text-[#1A1A1A]">
         <a href="https://github.com/koby47/ecommerce-api" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Ecommerce API</a>
       </h3>
-      <p class="text-xs text-slate-400 truncate">Payments · REST API</p>
+      <p class="text-xs text-[#4A4A4A] truncate">Payments · REST API</p>
     </div>
     <div class="flex flex-col items-end gap-2">
-      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-emerald-500 text-slate-900" href="https://github.com/koby47/ecommerce-api" target="_blank" rel="noopener noreferrer">Code</a>
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-[#0A66FF] text-white" href="https://github.com/koby47/ecommerce-api" target="_blank" rel="noopener noreferrer">Code</a>
     </div>
   </div>
   <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
-    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">Node</span>
-    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">API</span>
+    <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>Node</span>
+   <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>API</span>
   </div>
 </article>
 
 <!-- 3) Inventory Management API -->
-<article class="compact-card api bg-slate-800 p-4 rounded-lg shadow-sm" data-slug="inventory-api">
+<article class="compact-card api bg-white p-4 rounded-lg shadow-sm border border-[#E6EAF0]" data-slug="inventory-api">
   <div class="flex items-center gap-3">
     <img src="./img/github.png" alt="Inventory Management API logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
     <div class="flex-1 min-w-0">
-      <h3 class="text-sm font-semibold text-slate-100">
+      <h3 class="text-sm font-semibold text-[#1A1A1A]">
         <a href="https://github.com/koby47/inventory-api" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Inventory Management</a>
       </h3>
-      <p class="text-xs text-slate-400 truncate">Inventory API · CRUD · MongoDB</p>
+      <p class="text-xs text-[#4A4A4A] truncate">Inventory API · CRUD · MongoDB</p>
     </div>
     <div class="flex flex-col items-end gap-2">
-      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-emerald-500 text-slate-900" href="https://github.com/koby47/inventory-api" target="_blank" rel="noopener noreferrer">Code</a>
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-[#0A66FF] text-white" href="https://github.com/koby47/inventory-api" target="_blank" rel="noopener noreferrer">Code</a>
     </div>
   </div>
   <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
-    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">MongoDB</span>
-    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">Express</span>
+    <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>MongoDB</span>
+    <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>Express</span>
   </div>
 </article>
 
 <!-- 4) Library Management (repo re-used inventory-api in original) -->
-<article class="compact-card api bg-slate-800 p-4 rounded-lg shadow-sm" data-slug="library-api">
+<article class="compact-card api bg-white p-4 rounded-lg shadow-sm border border-[#E6EAF0]" data-slug="library-api">
   <div class="flex items-center gap-3">
     <img src="./img/github.png" alt="Library Management API logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
     <div class="flex-1 min-w-0">
-      <h3 class="text-sm font-semibold text-slate-100">
+      <h3 class="text-sm font-semibold text-[#1A1A1A]">
         <a href="https://github.com/koby47/inventory-api" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Library Management</a>
       </h3>
-      <p class="text-xs text-slate-400 truncate">Library API · Catalog · CRUD</p>
+      <p class="text-xs text-[#4A4A4A] truncate">Library API · Catalog · CRUD</p>
     </div>
     <div class="flex flex-col items-end gap-2">
-      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-emerald-500 text-slate-900" href="https://github.com/koby47/inventory-api" target="_blank" rel="noopener noreferrer">Code</a>
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-[#0A66FF] text-white" href="https://github.com/koby47/inventory-api" target="_blank" rel="noopener noreferrer">Code</a>
     </div>
   </div>
   <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
-    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">API</span>
-    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">Node</span>
+    <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>API</span>
+   <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>Node</span>
   </div>
 </article>
 
 <!-- 5) Advertisement (original index.html used inventory-api link) -->
-<article class="compact-card api bg-slate-800 p-4 rounded-lg shadow-sm" data-slug="advertisement-api">
+<article class="compact-card api bg-white p-4 rounded-lg shadow-sm border border-[#E6EAF0]" data-slug="advertisement-api">
   <div class="flex items-center gap-3">
     <img src="./img/github.png" alt="Advertisement API logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
     <div class="flex-1 min-w-0">
-      <h3 class="text-sm font-semibold text-slate-100">
+      <h3 class="text-sm font-semibold text-[#1A1A1A]">
         <a href="https://github.com/koby47/inventory-api" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Advertisement (API)</a>
       </h3>
-      <p class="text-xs text-slate-400 truncate">Ads API · Campaigns</p>
+      <p class="text-xs text-[#4A4A4A] truncate">Ads API · Campaigns</p>
     </div>
     <div class="flex flex-col items-end gap-2">
-      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-emerald-500 text-slate-900" href="https://github.com/koby47/inventory-api" target="_blank" rel="noopener noreferrer">Code</a>
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-[#0A66FF] text-white" href="https://github.com/koby47/inventory-api" target="_blank" rel="noopener noreferrer">Code</a>
     </div>
   </div>
   <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
-    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">API</span>
+    <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>API</span>
   </div>
 </article>
 
 <!-- 6) Ezbook (Frontend) - live -->
-<article class="compact-card web bg-slate-800 p-4 rounded-lg shadow-sm" data-slug="ezbook-web">
+<article class="compact-card web bg-white p-4 rounded-lg shadow-sm border border-[#E6EAF0]" data-slug="ezbook-web">
   <div class="flex items-center gap-3">
     <img src="./img/github.png" alt="Ezbook frontend logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
     <div class="flex-1 min-w-0">
-      <h3 class="text-sm font-semibold text-slate-100">
+      <h3 class="text-sm font-semibold text-[#1A1A1A]">
         <a href="https://ezbooki.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Ezbook (Frontend)</a>
       </h3>
-      <p class="text-xs text-slate-400 truncate">React · Netlify</p>
+      <p class="text-xs text-[#4A4A4A] truncate">React · Netlify</p>
     </div>
     <div class="flex flex-col items-end gap-2">
-      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-emerald-500 text-slate-900" href="https://ezbooki.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-[#0A66FF] text-white" href="https://ezbooki.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
     </div>
   </div>
   <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
-    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">React</span>
-    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">Netlify</span>
+    <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>React</span>
+   <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>Netlify</span>
   </div>
 </article>
 
 <!-- 7) Sign Natural Academy (frontend) -->
-<article class="compact-card web bg-slate-800 p-4 rounded-lg shadow-sm" data-slug="signnatural">
+<article class="compact-card web bg-white p-4 rounded-lg shadow-sm border border-[#E6EAF0]" data-slug="signnatural">
   <div class="flex items-center gap-3">
     <img src="./img/github.png" alt="Sign Natural Academy logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
     <div class="flex-1 min-w-0">
-      <h3 class="text-sm font-semibold text-slate-100">
+      <h3 class="text-sm font-semibold text-[#1A1A1A]">
         <a href="https://academy.signnatural.com/" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Sign Natural Academy</a>
       </h3>
-      <p class="text-xs text-slate-400 truncate">MERN Frontend</p>
+      <p class="text-xs text-[#4A4A4A] truncate">MERN Frontend</p>
     </div>
     <div class="flex flex-col items-end gap-2">
-      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-emerald-500 text-slate-900" href="https://academy.signnatural.com/" target="_blank" rel="noopener noreferrer">Live</a>
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-[#0A66FF] text-white" href="https://academy.signnatural.com/" target="_blank" rel="noopener noreferrer">Live</a>
     </div>
   </div>
   <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
-    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">React</span>
-    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">MERN</span>
+    <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>React</span>
+    <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>MERN</span>
   </div>
 </article>
 
 <!-- 8) Personal Portfolio (this site) -->
-<article class="compact-card web bg-slate-800 p-4 rounded-lg shadow-sm" data-slug="personal-portfolio">
+<article class="compact-card web bg-white p-4 rounded-lg shadow-sm border border-[#E6EAF0]" data-slug="personal-portfolio">
   <div class="flex items-center gap-3">
     <img src="./img/github.png" alt="Personal Portfolio logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
     <div class="flex-1 min-w-0">
-      <h3 class="text-sm font-semibold text-slate-100">
+      <h3 class="text-sm font-semibold text-[#1A1A1A]">
         <span class="inline-block truncate">Personal Portfolio</span>
       </h3>
-      <p class="text-xs text-slate-400 truncate">HTML · Tailwind · JavaScript</p>
+      <p class="text-xs text-[#4A4A4A] truncate">HTML · Tailwind · JavaScript</p>
     </div>
     <div class="flex flex-col items-end gap-2">
-      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-emerald-500 text-slate-900" href="#" onclick="alert('This is the current site — replace with live link if available')">Info</a>
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-[#0A66FF] text-white" href="#" onclick="alert('This is the current site — replace with live link if available')">Info</a>
     </div>
   </div>
   <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
-    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">HTML</span>
-    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200">JS</span>
+    <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>HTML</span>
+    <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>JS</span>
   </div>
 </article>
 
@@ -297,15 +351,15 @@
 
     <!-- RESUME -->
    <!-- RESUME (data-driven) -->
-<section id="resume" class="py-16 bg-slate-900/40">
+<section id="resume" class="py-16 bg-[#F7F9FC]">
   <div class="max-w-5xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center mb-8">My <span class="text-emerald-300">Resume</span></h2>
+    <h2 class="text-3xl font-bold text-center mb-8">My <span class="text-[#0A66FF]">Resume</span></h2>
 
     <!-- Renderer will inject two columns here -->
     <div id="resumeGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8" aria-live="polite"></div>
 
     <div class="mt-6 text-center">
-      <a id="downloadCv" href="./pdf/Samuel_Mensah_Quaye_C_CV.pdf" class="inline-block px-4 py-2 bg-emerald-500 text-slate-900 rounded-md font-semibold focus-ring">Download Full CV (PDF)</a>
+      <a id="downloadCv" href="./pdf/Samuel_Mensah_Quaye_C_CV.pdf" class="inline-block px-4 py-2 bg-[#0A66FF] text-white rounded-md font-semibold focus-ring">Download Full CV (PDF)</a>
     </div>
   </div>
 </section>
@@ -314,22 +368,30 @@
     <!-- SKILLS -->
     <section class="py-16">
       <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-8">My <span class="text-emerald-300">Skills</span></h2>
+        <h2 class="text-3xl font-bold text-center mb-8">My <span class="text-[#0A66FF]">Skills</span></h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h4 class="font-semibold mb-4">Technical</h4>
             <ul class="space-y-4">
               <li>
-                <div class="flex justify-between mb-2"><span>HTML</span><span class="text-slate-400">90%</span></div>
-                <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden"><div class="bg-emerald-400 h-3 w-0 skill-bar" data-percent="90"></div></div>
+                <div class="flex justify-between mb-2"><span>HTML</span><span class="text-[#4A4A4A]">90%</span></div>
+               <div
+  class="w-full bg-[#E6EAF0] rounded-full h-3 overflow-hidden"
+>
+<div class="bg-[#0A66FF] text-white h-3 w-0 skill-bar" data-percent="90"></div></div>
               </li>
               <li>
-                <div class="flex justify-between mb-2"><span>CSS</span><span class="text-slate-400">90%</span></div>
-                <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden"><div class="bg-emerald-400 h-3 w-0 skill-bar" data-percent="90"></div></div>
+                <div class="flex justify-between mb-2"><span>CSS</span><span class="text-[#4A4A4A]">90%</span></div>
+                <div
+  class="w-full bg-[#E6EAF0] rounded-full h-3 overflow-hidden"
+><div class="bg-[#0A66FF] text-white h-3 w-0 skill-bar" data-percent="90"></div></div>
               </li>
               <li>
-                <div class="flex justify-between mb-2"><span>JavaScript</span><span class="text-slate-400">85%</span></div>
-                <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden"><div class="bg-emerald-400 h-3 w-0 skill-bar" data-percent="85"></div></div>
+                <div class="flex justify-between mb-2"><span>JavaScript</span><span class="text-[#4A4A4A]">85%</span></div>
+                <div
+  class="w-full bg-[#E6EAF0] rounded-full h-3 overflow-hidden"
+>
+<div class="bg-[#0A66FF] text-white h-3 w-0 skill-bar" data-percent="85"></div></div>
               </li>
               <!-- add more -->
             </ul>
@@ -340,11 +402,17 @@
             <ul class="space-y-4">
               <li>
                 <div class="flex justify-between mb-2"><span>Problem Solving</span><span class="text-slate-400">90%</span></div>
-                <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden"><div class="bg-emerald-400 h-3 w-0 skill-bar" data-percent="90"></div></div>
+                <div
+  class="w-full bg-[#E6EAF0] rounded-full h-3 overflow-hidden"
+>
+<div class="bg-[#0A66FF] text-white h-3 w-0 skill-bar" data-percent="90"></div></div>
               </li>
               <li>
                 <div class="flex justify-between mb-2"><span>Communication</span><span class="text-slate-400">90%</span></div>
-                <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden"><div class="bg-emerald-400 h-3 w-0 skill-bar" data-percent="90"></div></div>
+                <div
+  class="w-full bg-[#E6EAF0] rounded-full h-3 overflow-hidden"
+>
+<div class="bg-[#0A66FF] text-white h-3 w-0 skill-bar" data-percent="90"></div></div>
               </li>
             </ul>
           </div>
@@ -353,25 +421,28 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="py-16 bg-slate-900/40">
+    <section id="contact" class="py-16 bg-[#F7F9FC]">
       <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-6">Get <span class="text-emerald-300">In Touch</span></h2>
+        <h2 class="text-3xl font-bold text-center mb-6">Get <span class="text-[#0A66FF]">In Touch</span></h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <form id="contactForm" action="https://formsubmit.co/samuelmensahquaye@gmail.com" method="POST" class="space-y-4 bg-slate-800 p-6 rounded-md shadow">
+          <form id="contactForm" action="https://formsubmit.co/samuelmensahquaye@gmail.com" method="POST" class="space-y-4 bg-white p-6 rounded-md shadow">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
             <label class="sr-only" for="name">Name</label>
-            <input id="name" name="name" required placeholder="Your name" class="w-full p-3 bg-slate-900/50 rounded border border-slate-700 focus-ring" />
+            <input id="name" name="name" required placeholder="Your name" class="w-full p-3 bg-white border border-[#E6EAF0] text-[#1A1A1A] placeholder:text-[#4A4A4A] focus-ring"
+ />
             <label class="sr-only" for="email">Email</label>
-            <input id="email" name="email" type="email" required placeholder="Your email" class="w-full p-3 bg-slate-900/50 rounded border border-slate-700 focus-ring" />
+            <input id="email" name="email" type="email" required placeholder="Your email" class="w-full p-3 bg-white border border-[#E6EAF0] text-[#1A1A1A] placeholder:text-[#4A4A4A] focus-ring"
+ />
             <label class="sr-only" for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Message" class="w-full p-3 bg-slate-900/50 rounded border border-slate-700 focus-ring"></textarea>
-            <button type="submit" class="px-4 py-2 bg-emerald-500 text-slate-900 rounded font-semibold">Send Message</button>
-            <div id="formStatus" aria-live="polite" class="text-sm text-emerald-300"></div>
+            <textarea id="message" name="message" rows="5" required placeholder="Message" class="w-full p-3 bg-white border border-[#E6EAF0] text-[#1A1A1A] placeholder:text-[#4A4A4A] focus-ring"
+></textarea>
+            <button type="submit" class="px-4 py-2 bg-[#0A66FF] text-white rounded font-semibold">Send Message</button>
+           <div id="formStatus" class="text-sm text-[#4A4A4A]"></div>
           </form>
 
           <div class="p-6 rounded-md">
-            <div class="bg-slate-800 p-6 rounded-md shadow">
+            <div class="bg-[#F7F9FC] p-6 rounded-md shadow">
               <p class="mb-2"><i class="fa fa-envelope mr-2"></i> samuelmensahquaye@gmail.com</p>
               <p class="mb-2"><i class="fa fa-map-marker mr-2"></i> Accra, Ghana</p>
               <p class="text-slate-400">Available for remote and on-site opportunities. Open to freelance and full-time roles.</p>
@@ -382,43 +453,93 @@
     </section>
   </main>
 
-  <footer class="py-8 border-t border-slate-800">
-    <div class="max-w-6xl mx-auto px-6 text-center text-slate-400">
+  <footer class="py-8 shadow-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-6 text-center text-[#4A4A4A]">
       © <span id="year"></span> Samuel Mensah Quaye — built with HTML, Tailwind & curiosity.
     </div>
   </footer>
   <!-- Project Modal (drop before </body>) -->
-<div id="projectModal" class="fixed inset-0 z-60 hidden items-center justify-center px-4 py-8">
+<div id="projectModal" class="fixed inset-0 z-60 hidden flex items-start justify-center px-4 pt-24 pb-8">
+
   <!-- overlay -->
-  <div id="modalOverlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+  <div id="modalOverlay" class="absolute inset-0 bg-black/10 backdrop-blur-sm"></div>
 
   <!-- modal panel -->
-  <div role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc"
-       class="relative max-w-3xl w-full mx-auto bg-slate-900 text-slate-100 rounded-lg shadow-xl overflow-hidden transform transition-all motion-safe:duration-200">
-    <button id="modalClose" class="absolute right-3 top-3 p-2 rounded-md text-slate-200 focus:ring-2 focus:ring-emerald-400" aria-label="Close dialog">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-    </button>
+  <div
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modalTitle"
+  aria-describedby="modalDesc"
+  class="relative max-w-2xl w-full mx-auto mt-4 bg-white text-[#1A1A1A]
+         border border-[#E6EAF0] rounded-lg shadow-xl
+         overflow-hidden max-h-[80vh] flex flex-col"
+>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-0 flex-1 overflow-hidden">
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <!-- Left: image -->
-      <div class="bg-slate-800 flex items-center justify-center p-4">
-        <img id="modalImage" src="" alt="" class="max-h-[60vh] w-full object-contain rounded-md" />
+    <!-- Left: image -->
+    <div class="bg-[#F7F9FC] flex items-center justify-center p-4">
+      <img
+        id="modalImage"
+        src=""
+        alt=""
+        class="max-h-[45vh] md:max-h-[60vh] w-full object-contain rounded-md"
+      />
+    </div>
+
+    <!-- Right: content -->
+    <div class="p-6 flex flex-col gap-4 overflow-y-auto">
+
+      <!-- Modal header -->
+      <div class="flex items-start justify-between gap-4">
+        <h3 id="modalTitle"
+    class="text-xl md:text-2xl font-bold leading-snug text-[#1A1A1A] pr-4 break-words"> 
+  </h3>
+
+        <button
+          id="modalClose"
+          class="shrink-0 p-2 rounded-md border border-[#E6EAF0]
+                 text-[#1A1A1A] hover:bg-[#F7F9FC] focus-ring"
+          aria-label="Close dialog"
+        >
+          ✕
+        </button>
       </div>
 
-      <!-- Right: content -->
-      <div class="p-6 flex flex-col gap-4">
-        <h3 id="modalTitle" class="text-2xl font-bold"></h3>
-        <p id="modalDesc" class="text-slate-300 text-sm leading-relaxed"></p>
+      <p
+        id="modalDesc"
+        class="text-[#4A4A4A] text-sm leading-relaxed"
+      ></p>
 
-        <div id="modalTech" class="flex flex-wrap gap-2 mt-2"></div>
+      <div id="modalTech" class="flex flex-wrap gap-2 mt-2"></div>
 
-        <div class="mt-auto flex gap-3">
-          <a id="modalLive" class="hidden inline-flex items-center gap-2 px-4 py-2 rounded-md bg-emerald-500 text-slate-900 font-semibold" href="#" target="_blank" rel="noopener noreferrer">Live</a>
-          <a id="modalCode" class="hidden inline-flex items-center gap-2 px-4 py-2 rounded-md border border-slate-700 text-slate-200" href="#" target="_blank" rel="noopener noreferrer">Code</a>
-        </div>
+      <div class="mt-auto flex gap-3 pt-4">
+        <a
+          id="modalLive"
+          class="hidden inline-flex items-center gap-2 px-4 py-2
+                 rounded-md bg-[#0A66FF] text-white font-semibold"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Live
+        </a>
+
+        <a
+          id="modalCode"
+          class="hidden inline-flex items-center gap-2 px-4 py-2
+                 rounded-md border border-[#E6EAF0] text-[#1A1A1A]"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Code
+        </a>
       </div>
+
     </div>
   </div>
+</div>
+
 </div>
   <script src="./js/script.js" defer></script>
 </body>

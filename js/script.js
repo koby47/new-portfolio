@@ -34,11 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Activate initial state
   const setActive = (btn) => {
     filterBtns.forEach(b => {
-      b.classList.remove('bg-emerald-500', 'text-slate-900');
-      b.classList.add('bg-transparent','border','border-slate-700','text-slate-200');
+     b.classList.remove('bg-[#0A66FF]', 'text-white');
+     b.classList.add('border-[#E6EAF0]', 'text-[#1A1A1A]');
       b.setAttribute('aria-pressed', 'false');
     });
-    btn.classList.add('bg-emerald-500','text-slate-900');
+    btn.classList.add('bg-[#0A66FF]', 'text-white');
     btn.classList.remove('bg-transparent');
   btn.setAttribute('aria-pressed', 'true');
   };
@@ -238,7 +238,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (techSpans.length) {
       techSpans.forEach(s => {
         const node = document.createElement('span');
-        node.className = 'text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-200';
+       node.className ='text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]';
+
         node.textContent = s.textContent.trim();
         modalTech.appendChild(node);
       });
@@ -398,12 +399,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // markup builder for a resume card
   function buildCard(item) {
    const card = el('article', {
-  cls: 'resume-card bg-slate-800 p-5 rounded-lg shadow-md will-change-transform opacity-0 translate-y-[18px]'
+  cls: 'resume-card bg-white p-5 rounded-lg shadow-md will-change-transform opacity-0 translate-y-[18px]'
 });
 
 
     const date = el('p', { cls: 'text-sm text-slate-400', text: item.date || '' });
-    const title = el('h4', { cls: 'font-bold text-lg mt-1 text-slate-100', text: item.title || '' });
+    const title = el('h4', { cls: 'font-bold text-lg mt-1 text-[#1A1A1A]', text: item.title || '' });
     const org = el('p', { cls: 'text-slate-300 mt-2', text: item.org || '' });
     const desc = el('p', { cls: 'text-slate-300 mt-2', text: item.desc || '' });
     const location = item.location ? el('p', { cls: 'text-sm text-slate-500 mt-2', text: item.location }) : null;
@@ -415,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (item.link) {
       const linkWrap = el('p', { cls: 'mt-2' });
-      const a = el('a', { cls: 'text-emerald-300 hover:underline', text: item.linkLabel || 'Link', attrs: { href: item.link, target: '_blank', rel: 'noopener noreferrer' } });
+      const a = el('a', { cls: 'text-[#0A66FF] hover:underline', text: item.linkLabel || 'Link', attrs: { href: item.link, target: '_blank', rel: 'noopener noreferrer' } });
       linkWrap.appendChild(a);
       card.appendChild(linkWrap);
     }
@@ -433,8 +434,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const rightCol = el('div', { cls: 'right-col space-y-6' });
 
     // headings
-    const leftHeading = el('h3', { cls: 'text-xl font-semibold mb-6 text-emerald-300', text: 'Education & Certification' });
-    const rightHeading = el('h3', { cls: 'text-xl font-semibold mb-6 text-emerald-300', text: 'Experience' });
+    const leftHeading = el('h3', { cls: 'text-xl font-semibold mb-6 text-[#0A66FF]', text: 'Education & Certification' });
+    const rightHeading = el('h3', { cls: 'text-xl font-semibold mb-6 text-[#0A66FF]', text: 'Experience' });
 
     leftCol.appendChild(leftHeading);
     rightCol.appendChild(rightHeading);
