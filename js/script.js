@@ -338,6 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
         org: "ISC2",
         location: "Accra, Ghana",
         desc: "Certification covering core cybersecurity concepts and best practices."
+        
       },
       {
         id: "ba-gij",
@@ -348,36 +349,49 @@ document.addEventListener('DOMContentLoaded', () => {
         desc: "Studies in media, communication, and digital content."
       }
     ],
-    experience: [
-      {
-        id: "secure-eyes",
-        date: "February 2023 - Present",
-        title: "IT & Administrative Support",
-        org: "Secure Eyes",
-        desc: "Designed and updated client websites (WordPress, Joomla); performed regular backups and implemented basic security measures to protect company data."
-      },
-      {
-        id: "joella",
-        date: "November 2018 - January 2023",
-        title: "Administrative Assistant",
-        org: "Joella Properties",
-        desc: "Created marketing materials; coordinated property viewings; managed office inventory and reduced supply costs through vendor negotiations."
-      },
-      {
-        id: "anaess",
-        date: "March 2013 - October 2018",
-        title: "Office Coordinator",
-        org: "Anaess Communication Limited",
-        desc: "Assisted with website visuals and troubleshooting desktop hardware; supported office admin duties."
-      },
-      {
-        id: "redan",
-        date: "August 2009 - March 2010",
-        title: "Computer Repair Technician",
-        org: "Redan Systems Ltd",
-        desc: "Troubleshot and repaired desktop computers; performed software upgrades and maintenance."
-      }
-    ]
+   experience: [
+  {
+    id: "sign-natural-2025",
+    date: "December 2025 – Present",
+    title: "Web Developer (Remote)",
+    org: "Sign Natural Ventures",
+    location: "Remote",
+    desc: "Develop and maintain web applications supporting experiential learning platforms features."
+  },
+  {
+    id: "grow-yai-2025",
+    date: "July 2025 – November 2025",
+    title: "Digital Skills Expert (Post-Project Support)",
+    org: "GROW-YAI",
+    location: "Remote",
+    desc: "Maintained and supported innovators’ websites to ensure usability, accessibility, performance, and overall functionality."
+  },
+  {
+    id: "secure-eyes-2023",
+    date: "February 2023 – February 2025",
+    title: "IT and Administrative Support",
+    org: "Secure Eyes",
+    location: "Accra, Ghana",
+    desc: "Provided IT support including software installation, troubleshooting, and system maintenance. "
+  },
+  {
+    id: "excelerate-2024",
+    date: "September 2024 – October 2024",
+    title: "Project Management Intern",
+    org: "Excelerate",
+    location: "Remote",
+    desc: "Developed project plans for a global experiential learning event. "
+  },
+  {
+    id: "globart-2020",
+    date: "January 2020 – December 2023",
+    title: "Executive Assistant",
+    org: "Globart Telsria",
+    location: "Ghana",
+    desc: "Coordinated executive schedules, meetings, and travel arrangements."
+  }
+]
+
   };
 
   // --- 2) DOM targets ---
