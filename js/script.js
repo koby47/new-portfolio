@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
         org: "IBM",
         location: "Online",
         desc: "Foundational web development training; certificate available.",
-        link: "https://www.credly.com/badges/d08d0a78-6e1c-4611-9a42-560d1010746d/linked_in_profile",
+        link: "https://www.credly.com/badges/d08d0a78-6e1c-4611-9a42-560d1010746d",
         linkLabel: "Credential"
       },
       {
@@ -329,7 +329,9 @@ document.addEventListener('DOMContentLoaded', () => {
         title: "Junior Cybersecurity Analyst",
         org: "Cisco Networking Academy",
         location: "Online",
-        desc: "Hands-on cybersecurity labs covering fundamentals of networking security and risk assessment."
+        desc: "Hands-on cybersecurity labs covering fundamentals of networking security and risk assessment.",
+        link: "https://www.credly.com/badges/471e0511-86ee-4326-bf65-78f5807386da/public_url",
+        linkLabel: "Credential"
       },
       {
         id: "isc2-2024",
@@ -337,7 +339,9 @@ document.addEventListener('DOMContentLoaded', () => {
         title: "Certified in Cybersecurity",
         org: "ISC2",
         location: "Accra, Ghana",
-        desc: "Certification covering core cybersecurity concepts and best practices."
+        desc: "Certification covering core cybersecurity concepts and best practices.",
+        link: "https://www.credly.com/badges/945d311d-e109-4555-a6d2-a8563896ad7e/public_url",
+        linkLabel: "Credential"
         
       },
       {

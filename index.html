@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Samuel Mensah Quaye — Frontend & Cybersecurity</title>
+  <title>Samuel Mensah Quaye — Full stack & Cybersecurity</title>
   <meta name="description" content="Samuel Mensah Quaye — Software developer & cybersecurity analyst. HTML • CSS • JS • Node • MongoDB. View projects, resume and contact." />
   <meta property="og:title" content="Samuel Mensah Quaye — Developer & Cybersecurity" />
-  <meta property="og:description" content="Portfolio: projects, resume and contact." />
+  <meta property="og:description" content="Samuel Mensah Quaye Portfolio: projects, resume and contact." />
 
   <!-- Tailwind CDN for quick demo (use PostCSS/Tailwind CLI for production). -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -99,26 +99,63 @@ html, body {
 
   <main id="top" class="pt-20">
     <!-- HERO -->
-    <section class="min-h-[72vh] flex items-center">
-      <div class="max-w-6xl mx-auto px-6 py-20">
-        <div class="text-center">
-          <p class="uppercase tracking-wider text-sm text-[#0A66FF] mb-3">Hello, I'm</p>
-          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-md">Samuel Mensah Quaye</h1>
-          <p class="text-lg md:text-xl text-[#4A4A4A] mb-8 max-w-2xl mx-auto">I build fast, secure, and accessible web experiences — frontend development paired with a security-first mindset.</p>
-          <div class="flex gap-4 justify-center">
-            <a href="#portfolio" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#0A66FF] text-white text-slate-900 font-semibold transform motion-safe:transition hover:scale-105">View Projects</a>
-            <a href="./pdf/Samuel_Mensah_Quaye_C_CV.pdf" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-[#E6EAF0] text-[#1A1A1A] hover:bg-[#F0F4FF]" d>Download CV</a>
-          </div>
-        </div>
+    <section class="relative min-h-[72vh] flex items-center overflow-hidden">
+
+  <!-- Background Image -->
+  <div class="absolute inset-0 -z-20">
+    <img 
+      src="./img/hero new.png" 
+      alt="" 
+      loading="eager"
+      class="w-full h-full object-cover"
+    />
+  </div>
+
+  <!-- Overlay (critical for blending & readability) -->
+  <div class="absolute inset-0 -z-10 
+              bg-gradient-to-b 
+              from-white/85 
+              via-white/70 
+              to-white/90">
+  </div>
+
+  <!-- Content -->
+  <div class="max-w-6xl mx-auto px-6 py-20 w-full">
+    <div class="text-center">
+      <p class="uppercase tracking-wider text-sm text-[#0A66FF] mb-3">
+        Hello, I'm
+      </p>
+
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-sm">
+        Samuel Mensah Quaye
+      </h1>
+
+      <p class="text-lg md:text-xl text-[#4A4A4A] mb-8 max-w-2xl mx-auto">
+        I build fast, secure, and accessible web experiences — frontend and back-end development paired with a security-first mindset.
+      </p>
+
+      <div class="flex gap-4 justify-center">
+        <a href="#portfolio"
+           class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#0A66FF] text-white font-semibold transform motion-safe:transition hover:scale-105">
+          View Projects
+        </a>
+
+        <a href="./pdf/Samuel_Mensah_Quaye_C_CV.pdf"
+           class="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-[#E6EAF0] text-[#1A1A1A] hover:bg-[#F0F4FF]">
+          Download CV
+        </a>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
 
     <!-- ABOUT -->
     <section id="about" class="bg-[#F7F9FC] py-14">
       <div class="max-w-6xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div class="mx-auto">
-            <img src="./img/Aboutme.jpg" alt="Samuel Mensah Quaye portrait" loading="lazy" width="640" height="480" class="rounded-lg shadow-lg"/>
+            <img src="./img/Aboutme.jpg" alt="Samuel Mensah Quaye portrait" loading="lazy" width="320" height="240" class="rounded-lg shadow-lg"/>
           </div>
           <div>
             <h2 class="text-3xl font-bold mb-4">About <span class="text-[#0A66FF]">Me</span></h2>
@@ -273,7 +310,7 @@ html, body {
 <!-- 6) Ezbook (Frontend) - live -->
 <article class="compact-card web bg-white p-4 rounded-lg shadow-sm border border-[#E6EAF0]" data-slug="ezbook-web">
   <div class="flex items-center gap-3">
-    <img src="./img/github.png" alt="Ezbook frontend logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
+    <img src="./img/ez.png" alt="Ezbook frontend logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
     <div class="flex-1 min-w-0">
       <h3 class="text-sm font-semibold text-[#1A1A1A]">
         <a href="https://ezbooki.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Ezbook (Frontend)</a>
@@ -297,7 +334,7 @@ html, body {
 <!-- 7) Sign Natural Academy (frontend) -->
 <article class="compact-card web bg-white p-4 rounded-lg shadow-sm border border-[#E6EAF0]" data-slug="signnatural">
   <div class="flex items-center gap-3">
-    <img src="./img/github.png" alt="Sign Natural Academy logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
+    <img src="./img/signnatural.png" alt="Sign Natural Academy logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
     <div class="flex-1 min-w-0">
       <h3 class="text-sm font-semibold text-[#1A1A1A]">
         <a href="https://academy.signnatural.com/" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Sign Natural Academy</a>
@@ -321,7 +358,7 @@ html, body {
 <!-- 8) Personal Portfolio (this site) -->
 <article class="compact-card web bg-white p-4 rounded-lg shadow-sm border border-[#E6EAF0]" data-slug="personal-portfolio">
   <div class="flex items-center gap-3">
-    <img src="./img/github.png" alt="Personal Portfolio logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
+    <img src="./img/samquaye.png" alt="Personal Portfolio logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
     <div class="flex-1 min-w-0">
       <h3 class="text-sm font-semibold text-[#1A1A1A]">
         <span class="inline-block truncate">Personal Portfolio</span>
@@ -341,6 +378,31 @@ html, body {
 >JS</span>
   </div>
 </article>
+
+<!-- 9) Sign Natural Academy (frontend) -->
+<article class="compact-card web bg-white p-4 rounded-lg shadow-sm border border-[#E6EAF0]" data-slug="affosmart">
+  <div class="flex items-center gap-3">
+    <img src="./img/affosmarts.png" alt="Affosmart logo" loading="lazy" class="w-14 h-14 object-contain rounded-md bg-slate-900 p-2"/>
+    <div class="flex-1 min-w-0">
+      <h3 class="text-sm font-semibold text-[#1A1A1A]">
+        <a href="https://affosmartservices.com/" target="_blank" rel="noopener noreferrer" class="inline-block truncate hover:underline">Affosmart services</a>
+      </h3>
+      <p class="text-xs text-[#4A4A4A] truncate">MERN Frontend</p>
+    </div>
+    <div class="flex flex-col items-end gap-2">
+      <a class="inline-flex items-center px-2 py-1 text-xs rounded bg-[#0A66FF] text-white" href="https://affosmartservices.com/" target="_blank" rel="noopener noreferrer">Live</a>
+    </div>
+  </div>
+  <div class="mt-3 flex items-center gap-2 flex-wrap" aria-hidden="true">
+    <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>React</span>
+    <span
+  class="text-xs px-2 py-0.5 rounded bg-[#F7F9FC] text-[#4A4A4A] border border-[#E6EAF0]"
+>MERN</span>
+  </div>
+</article>
+
 
 
       <!-- Add more cards here for Inventory, Sign Natural, Portfolio etc. -->
